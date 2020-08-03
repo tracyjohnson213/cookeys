@@ -105,7 +105,32 @@
 
           </div><!-- End blog entries list -->
 
+          <div class="col-lg-4">
 
+            <div class="sidebar">
+
+              <h3 class="sidebar-title">Search</h3>
+              <div class="sidebar-item search-form">
+                <form action="">
+                  <input type="text">
+                  <button type="submit"><i class="icofont-search"></i></button>
+                </form>
+
+              </div><!-- End sidebar search formn-->
+
+              <h3 class="sidebar-title">Categories</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                {% for category in categories %}
+                  <li><a href="#">{{category.recipe_category.capitalize()}} <span>(25)</span></a></li>
+                {% endfor %}
+                </ul>
+
+              </div><!-- End sidebar categories-->
+
+            </div><!-- End sidebar -->
+
+          </div><!-- End blog sidebar -->
 
         </div>
 

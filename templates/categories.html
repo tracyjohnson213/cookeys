@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} {% block content %}
+
+<main id="main">
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="row" data-aos="zoom-in">
+          <div class="col-lg-9 text-center text-lg-left">
+            <!--<h3>Call To Action</h3>-->
+            <p></p>
+            <p> You don't see the type of cookies you want to bake.  Let's update the list and see how many will add to it!</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="#">Add Category</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+  <!-- ======= Categories Section ======= -->
+    <section id="icon-boxes" class="icon-boxes">
+      <div class="container">
+
+        <div class="row">
+        {% for category in categories %}
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4 class="title"><a href="">{{category.recipe_category}}</a></h4>
+              <p class="description">{{category.category_desc}}</p>
+                <a href="#" >Modify</a>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+        
+      </div>
+    </section><!-- End Icon Boxes Section -->
+
+    
+</main>
+
+{% endblock %}

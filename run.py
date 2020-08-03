@@ -67,7 +67,16 @@ def get_cookie(cookie_name):
     return render_template('cookie.html',
                            recipe=mongo.db.recipes.find_one(
                                {'cookie_name': cookie_name}),
-                           cookie=the_cookie)
+                           cookie=the_cookie,
+                           categories=mongo.db.categories.find())
+
+
+@app.route('/get_categories')
+def get_categories():
+    """ render all categories """
+    return render_template('categories.html',
+                           categories=mongo.db.categories.find(),
+                           title='Categories')
 
 
 if __name__ == '__main__':

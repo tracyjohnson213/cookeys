@@ -24,6 +24,7 @@ The site has been recreated in order to fill the following demonstration:
 - [ ] Recipes next button incorrectly routes
 - [ ] Recipes previous button incorrectly routes
 - [ ] All unittest do not run
+- [ ] Recipes of categories not displayed from link in cookie sidebar
 # Nice to have:
 - [ ] Upgrade unittest to use HTMLTestRunner
 
