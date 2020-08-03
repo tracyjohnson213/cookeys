@@ -19,6 +19,11 @@ The site has been recreated in order to fill the following demonstration:
 - Deployment to Heroku environment
 - No inclusion of passwords or secret keys in the project repository
 
+# To do
+- [ ] Link categories listed on cookie sidebar to resulting recipes
+- [ ] Update count of resulting recipes to links for categories listed on cookie sidebar
+- [ ] Set search results by category name
+- [ ] Set search results by recipe name
 # Known issues:
 - [ ] Recipes next button not disable when current page equal number of pages
 - [ ] Recipes next button incorrectly routes

@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request
 from flask_pymongo import PyMongo
 import math
 
@@ -77,6 +77,19 @@ def get_categories():
     return render_template('categories.html',
                            categories=mongo.db.categories.find(),
                            title='Categories')
+
+
+@app.route('/add_category')
+def add_category():
+    return render_template('addcategory.html',
+                           categories=mongo.db.categories.find())
+
+
+@app.route('/insert_category', methods=['POST'])
+def insert_category():
+    categories = mongo.db.categories
+    categories.insert_one(request.form.to_dict())
+    return redirect(url_for('get_categories'))
 
 
 if __name__ == '__main__':
