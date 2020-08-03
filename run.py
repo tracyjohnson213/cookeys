@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, redirect, url_for, request
 from flask_pymongo import PyMongo
 import math
+from bson.objectid import ObjectId
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'myCookeys'
@@ -89,6 +90,31 @@ def add_category():
 def insert_category():
     categories = mongo.db.categories
     categories.insert_one(request.form.to_dict())
+    return redirect(url_for('get_categories'))
+
+
+@app.route('/edit_category/<category_id>')
+def edit_category(category_id):
+    """ render form to edit category """
+    return render_template('editcategory.html',
+                           category=mongo.db.categories.find_one(
+                               {'_id': ObjectId(category_id)}))
+
+
+@app.route('/update_category/<category_id>', methods=['POST'])
+def update_category(category_id):
+    """ update category in database """
+    mongo.db.categories.update(
+        {'_id': ObjectId(category_id)},
+        {'recipe_category': request.form.get('recipe_category')},
+        {'category_desc': request.form.get('category_desc')})
+    return redirect(url_for('get_categories'))
+
+
+@app.route('/delete_category/<category_id>')
+def delete_category(category_id):
+    """ remove category from database """
+    mongo.db.categories.remove({'_id': ObjectId(category_id)})
     return redirect(url_for('get_categories'))
 
 

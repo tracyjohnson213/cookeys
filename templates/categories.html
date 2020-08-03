@@ -32,7 +32,7 @@
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
               <h4 class="title"><a href="">{{category.recipe_category}}</a></h4>
               <p class="description">{{category.category_desc}}</p>
-                <a href="#" >Modify</a>
+                <a href="{{url_for('edit_category', category_id=category._id)}}" >Modify</a>
             </div>
           </div>
           {% endfor %}
