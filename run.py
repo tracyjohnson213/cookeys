@@ -59,6 +59,17 @@ def get_prev_page(currentpage):
                     recipesPerPage=recipesPerPage)
 
 
+@app.route('/get_cookie/<cookie_name>')
+def get_cookie(cookie_name):
+    """ render individual recipe """
+    the_cookie = mongo.db.recipes.find_one(
+        {"cookie_name": cookie_name})
+    return render_template('cookie.html',
+                           recipe=mongo.db.recipes.find_one(
+                               {'cookie_name': cookie_name}),
+                           cookie=the_cookie)
+
+
 if __name__ == '__main__':
     app.run(
         debug=True

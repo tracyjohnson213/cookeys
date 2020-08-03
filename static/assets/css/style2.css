@@ -1,0 +1,12 @@
+/*--------------------------------------------------------------
+# Cookie.html
+--------------------------------------------------------------*/
+.change {
+    display: inline-block;
+    background: #f6b024;
+    color: #fff;
+    padding: 6px 20px 8px 20px;
+    transition: 0.3s;
+    font-size: 14px;
+    border-radius: 50px;
+}

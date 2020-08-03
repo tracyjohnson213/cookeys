@@ -72,7 +72,7 @@
               <div class="entry-content">
                 <p>{{recipe.summary|truncate(60, True) }}</p>
                 <div class="read-more">
-                  <a href="#">Full Recipe</a>
+                  <a href="{{url_for('get_cookie', cookie_name=recipe.cookie_name)}}">Full Recipe</a>
                 </div>
               </div>
 
