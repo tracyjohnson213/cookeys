@@ -72,6 +72,21 @@ def get_cookie(cookie_name):
                            categories=mongo.db.categories.find())
 
 
+@app.route('/add_recipe')
+def add_recipe():
+    """ render form to input new recipe """
+    return render_template('addrecipe.html',
+                           categories=mongo.db.categories.find())
+
+
+@app.route('/insert_recipe', methods=['POST'])
+def insert_recipe():
+    """ insert recipe into database """
+    recipes = mongo.db.recipes
+    recipes.insert_one(request.form.to_dict())
+    return redirect(url_for('get_recipes'))
+
+
 @app.route('/get_categories')
 def get_categories():
     """ render all categories """

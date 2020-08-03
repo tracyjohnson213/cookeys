@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} {% block content %}
+
+<main id="main">
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="row" data-aos="zoom-in">
+          <div class="col-lg-9 text-center text-lg-left">
+            <!--<h3>Call To Action</h3>-->
+            <p></p>
+            <p> Did you check that we had this one?  Search and check.</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <!--<a class="cta-btn align-middle" href="#">Call To Action</a>-->
+            <form action="">
+                <input type="text">
+                <button type="submit"><i class="icofont-search align-middle"></i></button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+  <!-- ======= Add Recipe Form ======= -->
+  <section id="addrecipe-form" class="addrecipe-form">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h4>Add a Recipe</h4>
+          <p>
+            We would love to see your favorites! All fields are required!
+          </p>
+          <form action="{{ url_for('insert_recipe')}}" method="POST">
+            <p>Recipe Name</p>
+            <!-- COOKIE NAME -->
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <input
+                  name="cookie_name"
+                  type="text"
+                  class="form-control"
+                  required
+                />
+                <div class="validate"></div>
+              </div>
+            </div>
+
+            <!-- CATEGORY -->
+            <div class="row">
+              <div class="col-md-6 form-group">
+                {% for cat in categories %}
+                <input
+                  type="radio"
+                  id="category"
+                  name="recipe_category"
+                  value="{{cat.recipe_category.capitalize()}}"
+                  required
+                />
+                <label for="category"
+                  >{{cat.recipe_category.capitalize()}}</label
+                >
+                {% endfor %}
+              </div>
+            </div>
+            <a href="{{url_for('add_category')}}"
+              ><i class="fas fa-plus-square">Add Category</i></a
+            >
+
+            <!-- INGREDIENTS -->
+              <div class="row">
+                <div class="col-md-6 form-group" id="qty">
+                <textarea 
+                    id="ingredients" 
+                    name="ingredients"
+                    placeholder="Qty & Ingredients" 
+                    class="message form-control" 
+                    required
+                    ></textarea>
+                <div 
+                    id="display_ingredients" 
+                    class="message" 
+                    style="overflow-y:auto; display:none" 
+                    ></div>
+                    <div class="validate"></div>
+                </div>
+              </div>
+
+            <!-- SUMMARY -->
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <textarea
+                  name="summary"
+                  class="form-control"
+                  placeholder="Sales Pitch"
+                  required
+                ></textarea>
+                <div class="validate"></div>
+              </div>
+            </div>
+
+            <!-- STEPS -->
+              <div class="row">
+                <div class="col-md-6 form-group">
+                <textarea 
+                    id="steps" 
+                    name="steps" 
+                    placeholder="Steps"
+                    class="message form-control" 
+                    required
+                    ></textarea>
+                <div 
+                    id="display_steps" 
+                    class="message" 
+                    style="overflow-y:auto; display:none" 
+                    ></div>
+                <div class="validate"></div>
+                </div>
+              </div>
+
+            <!-- AUTHOR -->
+            <div class="row">
+              <div class="col-md-3 form-group">
+                <input
+                  name="firstname"
+                  type="text"
+                  class="form-control"
+                  placeholder="First Name"
+                  required
+                />
+                <div class="validate"></div>
+              </div>
+              <div class="col-md-3 form-group">
+                <input
+                  name="lastname"
+                  type="text"
+                  class="form-control"
+                  placeholder="Last Name"
+                  required
+                />
+                <div class="validate"></div>
+              </div>
+            </div>
+
+            <!-- IMAGE -->
+            <div class="row">
+              <div class="col-md-4 form-group">
+                <span>Upload Image</span>
+                <input
+                  type="file"
+                  name="image_source"
+                  id="fileToUpload"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- ADD BUTTON -->
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Add Recipe</button>
+            </div>
+          </form>
+          <!-- End form -->
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<!-- End #main -->
+
+{% endblock %}
