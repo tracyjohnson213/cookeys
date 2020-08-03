@@ -1,17 +1,25 @@
 import os
-from flask import Flask
+from flask import Flask, render_template
+from flask_pymongo import PyMongo
 
 app = Flask(__name__)
+app.config["MONGO_DBNAME"] = 'myCookeys'
+app.config["MONGO_URI"] = os.getenv('MONGO_URI',
+                                    "mongodb+srv://admin:1studentDeveloper@firstcluster.b5ihz.mongodb.net/myCookeys?retryWrites=true&w=majority")
+
+mongo = PyMongo(app)
 
 
 @app.route('/')
-def index():
-    return 'Hello World!'
+@app.route('/get_recipes')
+def get_recipes():
+    """ render all recipes """
+    return render_template('recipes.html',
+                           recipes=mongo.db.recipes.find(),
+                           title='Recipes')
 
 
 if __name__ == '__main__':
     app.run(
-        host=os.get.env('IP', '0.0.0.0'),
-        port=int(os.getenv('PORT', '5000')),
         debug=True
     )
