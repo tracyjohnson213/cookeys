@@ -48,7 +48,7 @@
       <div class="container">
 
         <div class="row">
-     {% for recipe in recipes %}
+     {% for recipe in recipes.limit(recipesPerPage) %}
           <div class="col-lg-4  col-md-6 d-flex align-items-stretch" data-aos="fade-up">
             <article class="entry">
 
@@ -85,11 +85,33 @@
 
         <div class="blog-pagination" data-aos="fade-up">
           <ul class="justify-content-center">
+            <!-- add and set previous page pagination link -->
+            {% if currentpage == 1 %}
             <li class="disabled"><i class="icofont-rounded-left"></i></li>
-            <li><a href="#">1</a></li>
-            <li class="active"><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#"><i class="icofont-rounded-right"></i></a></li>
+            {% else %}
+            <li><a href="{{url_for('get_prev_page', currentpage = currentpage)}}"><i class="icofont-rounded-left"></i></a></li>
+            {% endif %}
+
+            <!-- add page numbers -->
+            {% for page in range(1,numberOfPages + 1) %}
+                <!-- set active pagination link -->
+                {% if page == currentpage and page == 1 %}
+                <li class="active"><a href="{{url_for('get_recipes',)}}">{{page}}</a></li>
+                {% elif page == 1 %}
+                <li><a href="{{url_for('get_recipes',)}}">{{page}}</a></li>
+                {% elif page == currentpage and page != 1 %}
+                <li class="active"><a href="{{url_for('get_recipes_set', page = page)}}">{{page}}</a></li>
+                {% else %}
+                <li><a href="{{url_for('get_recipes_set', currentpage = page)}}">{{page}}</a></li>
+                {% endif %}
+           {% endfor %}
+
+           <!-- add and set next page pagination link -->
+           {% if currentpage == numberOfPages %}
+            <li class="disabled"><i class="icofont-rounded-right"></i></li>
+            {% else %}
+            <li><a href="{{url_for('get_next_page', currentpage = currentpage)}}"><i class="icofont-rounded-right"></i></a></li>
+            {% endif %}
           </ul>
         </div>
 
