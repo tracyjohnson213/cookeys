@@ -1,39 +1,41 @@
 <img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+<img src="/static/assets/images/cookeylogo.png" alt="cookeylogo">
 
-Welcome tracyjohnson213,
+# Cookeys
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+The purpose of this web application is to allow sharing of cookie recipes.
+The website is deployed to url = https://cookeys2.herokuapp.com/.
 
-## Gitpod Reminders
+The site has been recreated in order to fill the following demonstration:
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+- Creation of a MongoDB backed Flask web application project that allows users to store and manipulate data records
+- Design of well suited database structure including nested relationships between records of different entities
+- Creation of CRUD functionality
+- Use of HTML and custom CSS for front end
+- Incorporation of main navigation menu and structured layout
+- Creation of valuable README.md
+- Git & Github version control
+- Clear separation of code written from code of external sources
+- Deployment to Heroku environment
+- No inclusion of passwords or secret keys in the project repository
 
-`python3 -m http.server`
+# Known issues:
+- [ ] Recipes next button not disable when current page equal number of pages
+- [ ] Recipes next button incorrectly routes
+- [ ] Recipes previous button incorrectly routes
+- [ ] All unittest do not run
+# Nice to have:
+- [ ] Upgrade unittest to use HTMLTestRunner
 
-A blue button should appear to click: *Make Public*,
+## Credits
+- [Anyar Bootstrap Theme](https://bootstrapmade.com/demo/Anyar/)
 
-Another blue button should appear to click: *Open Browser*.
+### Content
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+The text for the site was copied from
 
-A blue button should appear to click: *Make Public*,
-
-Another blue button should appear to click: *Open Browser*.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
+- 3 ingredient sugar cookies, https://www.delish.com/cooking/recipe-ideas/recipes/a45306/3-ingredient-sugar-cookies/
+- 5 ingredient easy chocalate chip cookies, https://www.allrecipes.com/recipe/244642/5-ingredient-easy-chocolate-chip-cookies/
+- 3 ingredient peanut butter cookies, https://www.biggerbolderbaking.com/3-ingredient-peanut-butter-cookies/
+- Chocolate kiss powder puff cookies, https://www.averiecooks.com/chocolate-kiss-powder-puff-cookies/
+- Types of Cookies, https://www.thenibble.com/reviews/main/cookies/cookies2/cookie-history3.asp
