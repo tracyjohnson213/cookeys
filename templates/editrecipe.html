@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} {% block content %}
+
+<main id="main">
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="row" data-aos="zoom-in">
+          <div class="col-lg-9 text-center text-lg-left">
+            <!--<h3>Call To Action</h3>-->
+            <p></p>
+            <p> Do you really want to edit this one or are you putting a new spin on it that makes it a new one?</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="{{url_for('add_category')}}">Add Category</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+  <!-- ======= Edit Recipe Form ======= -->
+  <section id="addrecipe-form" class="addrecipe-form">
+    <div class="container">
+      <div class="row">
+        <form
+          class="col-lg-8"
+          action="{{ url_for('update_recipe', recipe_id=recipe._id)}}"
+          method="POST"
+        >
+          <!-- COOKIE NAME -->
+          <div class="row">
+            <div class="col">
+              <div class="row">
+                <div class="input-field col-lg-8">
+                  <input
+                    id="cookie_name"
+                    name="cookie_name"
+                    type="text"
+                    class="validate form-control"
+                    value="{{recipe.cookie_name.capitalize()}}"
+                  />
+                  <label for="cookie_name">Cookie Name</label>
+                </div>
+              </div>
+
+              <!-- CATEGORY -->
+              <div class="row">
+                <div class="input-field col-sm-8">
+                <p>
+                  {% for cat in categories %}
+                  <label>
+                    {% if cat.recipe_category in recipe.recipe_category %}
+                    <input
+                      class="with-gap"
+                      name="recipe_category"
+                      id="category"
+                      type="radio"
+                      value="{{recipe.recipe_category}}"
+                      checked
+                    />
+                    {% else %}
+                    <input
+                      class="with-gap"
+                      name="recipe_category"
+                      id="category"
+                      type="radio"
+                      value="{{cat.recipe_category}}"
+                    />
+                    {% endif %}
+                    <span>{{cat.recipe_category.capitalize()}}</span>
+                  </label>
+                  {% endfor %}
+                </p>
+              </div>
+              </div>
+
+              <!-- INGREDIENTS -->
+              <div class="row">
+                <div class="input-field col-lg-8">
+                  <textarea
+                    id="ingredients"
+                    name="ingredients"
+                    class="message form-control"
+                  >{{ recipe.ingredients.split('-') | join(' ')  }}
+                    </textarea
+                  >
+                </div>
+              </div>
+
+              <!-- SUMMARY -->
+              <div class="row">
+                <div class="input-field col-lg-8">
+                  <textarea
+                    id="summary"
+                    name="summary"
+                    class="form-control"
+                  >
+                    Sales Pitch: {{recipe.summary}}</textarea
+                  >
+                </div>
+              </div>
+
+              <!-- STEPS -->
+              <div class="row">
+                <div class="input-field col-lg-8">
+                  <textarea
+                    id="steps"
+                    name="steps"
+                    class="message form-control"
+                  >{{ recipe.steps.split('-') | join(' ') }}
+                    </textarea
+                  >
+                </div>
+              </div>
+
+              <!-- AUTHOR -->
+              <div class="row">
+                <div class="input-field col-sm-4">
+                  <input
+                    id="firstname"
+                    name="firstname"
+                    type="text"
+                    class="validate form-control"
+                    value="{{recipe.firstname}}"
+                    required
+                  />
+                  <label for="firstname">First Name</label>
+                </div>
+                <div class="input-field col-sm-4">
+                  <input
+                    id="lastname"
+                    name="lastname"
+                    type="text"
+                    class="validate form-control"
+                    value="{{recipe.lastname}}"
+                    required
+                  />
+                  <label for="lastname">Last Name</label>
+                </div>
+              </div>
+
+              <!-- IMAGE -->
+              <div class="row">
+                <div class="file-field input-field col-lg-8">
+                    <div class="btn">
+                        <span>Upload Image</span>
+                        <input type="file" />
+                    </div>
+                </div>
+            </div>
+                <div class="input-field col-sm-s4 thumbnail">
+                  <img
+                    width="50%"
+                    src="../static/assets/img/cookies/{{recipe.image_source}}"
+                    alt="{{recipe.image_source}}"
+                  />
+                </div>
+                    <input
+                      class="file-path validate"
+                      name="image_source"
+                      type="text"
+                      value="{{recipe.image_source}}"
+                    />
+              </div>
+              
+          </div>
+          <!-- UPDATE BUTTON -->
+          <button type="submit" class="btn btn-primary">Update Recipe</button>
+        </form><!-- End form -->
+      </div>
+    </div>
+  </section>
+</main>
+<!-- End #main -->
+
+{% endblock %}
