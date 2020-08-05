@@ -15,6 +15,7 @@ recipe_count = mongo.db.recipes.count()
 
 
 def getNumberOfPages(count):
+    """ calculate for number of pages required to display results """
     return math.ceil(count/recipesPerPage)
 
 
@@ -27,7 +28,8 @@ def get_recipes():
     return render_template('recipes.html',
                            recipesPerPage=recipesPerPage,
                            currentpage=1,
-                           recipes=mongo.db.recipes.find().skip(recipesPerPage*(pagelessone)),
+                           recipes=mongo.db.recipes.find()
+                           .skip(recipesPerPage*(pagelessone)),
                            numberOfPages=getNumberOfPages(recipe_count),
                            title='Recipes')
 
@@ -39,13 +41,15 @@ def get_recipes_set(currentpage):
     return render_template('recipes.html',
                            recipesPerPage=recipesPerPage,
                            currentpage=currentpage,
-                           recipes=mongo.db.recipes.find().skip(recipesPerPage*(pagelessone)),
+                           recipes=mongo.db.recipes.find()
+                           .skip(recipesPerPage*(pagelessone)),
                            numberOfPages=getNumberOfPages(recipe_count),
                            title='Recipes')
 
 
 @app.route('/get_recipes/<currentpage>')
 def get_next_page(currentpage):
+    """ calculate for next page button """
     newcurrentpage = int(currentpage) - 1
     return redirect(url_for('get_recipes_set',
                             currentpage=newcurrentpage),
@@ -54,6 +58,7 @@ def get_next_page(currentpage):
 
 @app.route('/get_recipes/<currentpage>')
 def get_prev_page(currentpage):
+    """ calculate for previous page button """
     newcurrentpage = int(currentpage) + 1
     return redirect(url_for('get_recipes_set',
                             currentpage=newcurrentpage),
@@ -167,6 +172,35 @@ def delete_category(category_id):
     """ remove category from database """
     mongo.db.categories.remove({'_id': ObjectId(category_id)})
     return redirect(url_for('get_categories'))
+
+
+@app.route('/search/<category>', methods=['POST'])
+def search(category):
+    """ get recipes or category matching criteria """
+    currentpage = 1
+    pagelessone = int(currentpage)-1
+    return render_template('recipes.html',
+                           recipesPerPage=recipesPerPage,
+                           currentpage=currentpage,
+                           recipes=mongo.db.recipes.find(
+                               {"category": category}
+                           ).skip(recipesPerPage*(pagelessone)),
+                           numberOfPages=getNumberOfPages(recipe_count),
+                           title='Recipes')
+
+
+"""@app.route('/search/<cookie_name>', methods=['POST'])
+def search(cookie_name):
+    currentpage = 1
+    pagelessone = int(currentpage)-1
+    return render_template('recipes.html',
+                           recipesPerPage=recipesPerPage,
+                           currentpage=currentpage,
+                           recipes=mongo.db.recipes.find(
+                               {"cookie_name": cookie_name}
+                           ).skip(recipesPerPage*(pagelessone)),
+                           numberOfPages=getNumberOfPages(recipe_count),
+                           title='Recipes')"""
 
 
 if __name__ == '__main__':

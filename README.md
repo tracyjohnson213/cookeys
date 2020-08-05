@@ -24,12 +24,14 @@ The site has been recreated in order to fill the following demonstration:
 - [ ] Update count of resulting recipes to links for categories listed on cookie sidebar
 - [ ] Set search results by category name
 - [ ] Set search results by recipe name
+- [ ] Fix Heroku deployment
 # Known issues:
 - [ ] Recipes next button not disable when current page equal number of pages
 - [ ] Recipes next button incorrectly routes
 - [ ] Recipes previous button incorrectly routes
 - [ ] All unittest do not run
 - [ ] Recipes of categories not displayed from link in cookie sidebar
+- [ ] .count is depreciated, use .countDocuments instead
 # Nice to have:
 - [ ] Upgrade unittest to use HTMLTestRunner
 
