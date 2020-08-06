@@ -109,9 +109,9 @@ def update_recipe(recipe_id):
     recipes.update({'_id': ObjectId(recipe_id)},
                    {
         'cookie_name': request.form.get('cookie_name'),
-        'ingredients': request.form.get('ingredients[]'),
-        'qty': request.form.get('qty[]'),
-        'steps': request.form.get('steps[]'),
+        'ingredients': request.form.get('ingredients'),
+        'qty': request.form.get('qty'),
+        'steps': request.form.get('steps'),
         'firstname': request.form.get('firstname'),
         'lastname': request.form.get('lastname'),
         'summary': request.form.get('summary'),
