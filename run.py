@@ -11,7 +11,7 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI',
 
 mongo = PyMongo(app)
 recipesPerPage = 9
-recipe_count = mongo.db.recipes.count()
+recipe_count = mongo.db.recipes.count_documents({})
 
 
 def getNumberOfPages(count):
@@ -205,5 +205,7 @@ def search(cookie_name):
 
 if __name__ == '__main__':
     app.run(
+        host=os.getenv('IP','0.0.0.0'),
+        port=int(os.getenv('PORT', '5000')),
         debug=True
     )
