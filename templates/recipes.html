@@ -94,14 +94,14 @@
             {% else %}
             <li><a href="{{url_for('get_recipes_set', currentpage = prevpage)}}"><i class="icofont-rounded-left"></i></a></li>
             {% endif %}
-
+            
             <!-- add page numbers -->
             {% for page in range(1,numberOfPages + 1) %}
                 <!-- set active pagination link -->
-                {% if page == currentpage and page == 1 %}
+                {% if currentpage == 1 and page == 1 %}
                 <li class="active"><a href="{{url_for('get_recipes')}}">{{page}}</a></li>
-                {% elif page == currentpage and page != 1 %}
-                <li class="active"><a href="{{url_for('get_recipes_set', page = currentpage)}}">{{page}}</a></li>
+                {% elif currentpage != 1 and page != 1 %}
+                <li class="active"><a href="{{url_for('get_recipes_set', currentpage = page)}}">{{page}}</a></li>
                 {% elif page == 1 %}
                 <li><a href="{{url_for('get_recipes')}}">{{page}}</a></li>
                 {% else %}
@@ -109,8 +109,7 @@
                 {% endif %}
            {% endfor %}
 
-           <!-- add and set next page pagination link -->
-           {% if currentpage == numberOfPages %}
+           {% if nextpage > numberOfPages %}
             <li class="disabled"><i class="icofont-rounded-right"></i></li>
             {% else %}
             <li><a href="{{url_for('get_recipes_set', currentpage = nextpage )}}"><i class="icofont-rounded-right"></i></a></li>
