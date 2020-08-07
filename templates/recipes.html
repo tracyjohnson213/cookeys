@@ -65,7 +65,7 @@
                 <ul>
                 {% set recipe_author = recipe.firstname + ' ' + recipe.lastname %}
                   <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html">{{recipe_author}}</a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{recipe.timestamp}}</time></a></li>
                 </ul>
               </div>
 

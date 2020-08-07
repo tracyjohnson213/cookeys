@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, redirect, url_for, request
 from flask_pymongo import PyMongo
+from jinja2 import environmentfilter
 import math
 from datetime import datetime
 from bson.objectid import ObjectId
@@ -10,7 +11,6 @@ app.config["MONGO_DBNAME"] = 'myCookeys'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI',
                                     "mongodb+srv://admin:1studentDeveloper@firstcluster.b5ihz.mongodb.net/myCookeys?retryWrites=true&w=majority")
 mongo = PyMongo(app)
-now = datetime.now()
 recipesPerPage = 9
 recipe_count = mongo.db.recipes.count_documents({})
 category_count = mongo.db.categories.count_documents({})
@@ -76,8 +76,12 @@ def add_recipe():
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     """ insert recipe into database """
+    now = datetime.now()
     recipes = mongo.db.recipes
-    recipes.insert_one(request.form.to_dict())
+    if request.method == "POST":
+        data = request.form.to_dict()
+        data['timestamp']= now.strftime('%b %d %Y')
+        recipes.insert_one(data)
     return redirect(url_for('get_recipes'))
 
 
@@ -94,6 +98,7 @@ def edit_recipe(recipe_id):
 @app.route('/update_recipe/<recipe_id>', methods=['POST'])
 def update_recipe(recipe_id):
     """ update recipe in database """
+    now = datetime.now()
     recipes = mongo.db.recipes
     recipes.update({'_id': ObjectId(recipe_id)},
                    {
@@ -105,7 +110,8 @@ def update_recipe(recipe_id):
         'lastname': request.form.get('lastname'),
         'summary': request.form.get('summary'),
         'recipe_category': request.form.get('recipe_category'),
-        'image_source': request.form.get('image_source')
+        'image_source': request.form.get('image_source'),
+        'timestamp': now.strftime('%b %d %Y')
     })
     return redirect(url_for('get_recipes'))
 
