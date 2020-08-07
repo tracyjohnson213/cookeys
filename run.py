@@ -139,8 +139,12 @@ def add_category():
 
 @app.route('/insert_category', methods=['POST'])
 def insert_category():
+    now = datetime.now()
     categories = mongo.db.categories
-    categories.insert_one(request.form.to_dict())
+    if request.method == "POST":
+        data = request.form.to_dict()
+        data['timestamp']= now.strftime('%b %d %Y')
+        categories.insert_one(data)
     return redirect(url_for('get_categories'))
 
 
@@ -155,10 +159,13 @@ def edit_category(category_id):
 @app.route('/update_category/<category_id>', methods=['POST'])
 def update_category(category_id):
     """ update category in database """
-    mongo.db.categories.update(
-        {'_id': ObjectId(category_id)},
-        {'recipe_category': request.form.get('recipe_category')},
-        {'category_desc': request.form.get('category_desc')})
+    now = datetime.now()
+    mongo.db.categories.update({'_id': ObjectId(category_id)},
+                               {
+            'recipe_category': request.form.get('recipe_category'),
+            'category_desc': request.form.get('category_desc'),
+            'timestamp': now.strftime('%b %d %Y')
+        })
     return redirect(url_for('get_categories'))
 
 
