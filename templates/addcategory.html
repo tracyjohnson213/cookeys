@@ -14,7 +14,7 @@
             <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Edit Category</a>
+            <a class="cta-btn align-middle" href="{{url_for('get_categories')}}">Edit Category</a>
           </div>
         </div>
 
@@ -33,12 +33,14 @@
 
           <div class="col-lg-5">
             <div class="info">
+                <div class="row">
               {% for category in categories %}
-              <div class="row">
-                <h5>{{category.recipe_category}}</h5><br>
-                <p>{{category.category_desc}}</p>
-              </div>
+                <div class="icon-box">
+                  <h5 class="title"><a href="">{{category.recipe_category}}</a></h5>
+                  <p class="description">{{category.category_desc}}</p>
+                </div>
               {% endfor %}
+            </div>
             </div>
 
           </div>
