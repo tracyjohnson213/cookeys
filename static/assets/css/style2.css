@@ -1,12 +1,74 @@
 /*--------------------------------------------------------------
-# Cookie.html
+# Cookie.html Edit and Delete buttons
 --------------------------------------------------------------*/
 .change {
-    display: inline-block;
-    background: #f6b024;
-    color: #fff;
-    padding: 6px 20px 8px 20px;
-    transition: 0.3s;
-    font-size: 14px;
-    border-radius: 50px;
+  display: inline-block;
+  background: #f6b024;
+  color: #fff;
+  padding: 6px 20px 8px 20px;
+  transition: 0.3s;
+  font-size: 14px;
+  border-radius: 50px;
+}
+
+/*--------------------------------------------------------------
+# Base.html Search bar
+--------------------------------------------------------------*/
+#topbar form {
+  margin-top: 30px;
+  padding: 6px 10px;
+  position: relative;
+  border-radius: 50px;
+}
+
+#topbar form input[type="text"] {
+  border: 0;
+  padding: 4px;
+  width: calc(100% - 0px);
+}
+
+#topbar form input[type="submit"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border: 0;
+  font-size: 16px;
+  padding: 0 20px;
+  margin: 3px;
+  transition: 0.3s;
+  border-radius: 50px;
+}
+
+/*--------------------------------------------------------------
+# Categories.html Icon Boxes
+--------------------------------------------------------------*/
+
+.icon-boxes .icon-box {
+  max-height: 90%;
+}
+
+/*--------------------------------------------------------------
+# Categories.html Pagination
+--------------------------------------------------------------*/
+.icon-boxes .category-pagination ul {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+}
+
+.icon-boxes .category-pagination li {
+  border: 1px solid white;
+  margin: 0 5px;
+  transition: 0.3s;
+}
+
+.icon-boxes .category-pagination li a {
+  padding: 7px 16px;
+  display: inline-block;
+}
+
+.icon-boxes .category-pagination li.disabled i {
+  padding: 10px 16px;
+  display: inline-block;
 }

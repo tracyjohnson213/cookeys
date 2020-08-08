@@ -12,6 +12,7 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI',
                                     "mongodb+srv://admin:1studentDeveloper@firstcluster.b5ihz.mongodb.net/myCookeys?retryWrites=true&w=majority")
 mongo = PyMongo(app)
 recipesPerPage = 9
+categoriesPerPage = 12
 recipe_count = mongo.db.recipes.count_documents({})
 category_count = mongo.db.categories.count_documents({})
 
@@ -126,8 +127,27 @@ def delete_recipe(recipe_id):
 @app.route('/get_categories')
 def get_categories():
     """ render all categories """
+    currentpage = 1
+    numberOfPages = getNumberOfPages(category_count)
     return render_template('categories.html',
-                           categories=mongo.db.categories.find(),
+                           categoriesPerPage=categoriesPerPage,
+                           currentpage=1,
+                           categories=mongo.db.categories.find()
+                           .skip(categoriesPerPage*(int(currentpage)-1)),
+                           numberOfPages=numberOfPages,
+                           title='Categories')
+
+
+@app.route('/get_categories/<currentpage>')
+def get_categories_set(currentpage):
+    """ render specific set of recipes """
+    numberOfPages = getNumberOfPages(category_count)
+    return render_template('categories.html',
+                           categoriesPerPage=categoriesPerPage,
+                           currentpage=currentpage,
+                           categories=mongo.db.categories.find()
+                           .skip(categoriesPerPage*(int(currentpage)-1)),
+                           numberOfPages=numberOfPages,
                            title='Categories')
 
 
@@ -176,8 +196,8 @@ def delete_category(category_id):
     return redirect(url_for('get_categories'))
 
 
-@app.route('/search/<category>', methods=['POST'])
-def search(category):
+@app.route('/search', methods=['POST'])
+def search(query):
     """ get recipes or category matching criteria """
     currentpage = 1
     pagelessone = int(currentpage)-1
@@ -185,24 +205,10 @@ def search(category):
                            recipesPerPage=recipesPerPage,
                            currentpage=currentpage,
                            recipes=mongo.db.recipes.find(
-                               {"category": category}
+                               {"cookie_name": query}
                            ).skip(recipesPerPage*(pagelessone)),
                            numberOfPages=getNumberOfPages(recipe_count),
                            title='Recipes')
-
-
-"""@app.route('/search/<cookie_name>', methods=['POST'])
-def search(cookie_name):
-    currentpage = 1
-    pagelessone = int(currentpage)-1
-    return render_template('recipes.html',
-                           recipesPerPage=recipesPerPage,
-                           currentpage=currentpage,
-                           recipes=mongo.db.recipes.find(
-                               {"cookie_name": cookie_name}
-                           ).skip(recipesPerPage*(pagelessone)),
-                           numberOfPages=getNumberOfPages(recipe_count),
-                           title='Recipes')"""
 
 
 if __name__ == '__main__':
