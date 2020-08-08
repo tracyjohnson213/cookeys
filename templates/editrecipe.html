@@ -22,7 +22,7 @@
     </section><!-- End Cta Section -->
 
   <!-- ======= Edit Recipe Form ======= -->
-  <section id="addrecipe-form" class="addrecipe-form">
+  <section id="editrecipe-form" class="editrecipe-form">
     <div class="container">
       <div class="row">
         <form
@@ -83,10 +83,8 @@
                   <textarea
                     id="ingredients"
                     name="ingredients"
-                    class="message form-control"
-                  >{{ recipe.ingredients.split('-') | join(' ')  }}
-                    </textarea
-                  >
+                    class="form-control"
+                  >{{ recipe.ingredients.split('-') | join(' ')  }}</textarea>
                 </div>
               </div>
 
@@ -109,7 +107,7 @@
                   <textarea
                     id="steps"
                     name="steps"
-                    class="message form-control"
+                    class="form-control"
                   >{{ recipe.steps.split('-') | join(' ') }}
                     </textarea
                   >

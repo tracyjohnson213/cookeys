@@ -11,6 +11,11 @@
   border-radius: 50px;
 }
 
+.blog .entry .entry-img,
+.edit-recipe-form .thumbnail {
+  max-height: 200px !important;
+}
+
 /*--------------------------------------------------------------
 # Base.html Search bar
 --------------------------------------------------------------*/
