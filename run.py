@@ -156,6 +156,8 @@ def get_recipes_in_category(category,currentpage):
                            recipes=mongo.db.recipes
                            .find({'recipe_category': category})
                            .skip(categoriesPerPage*(int(currentpage)-1)),
+                           itemCount=mongo.db.recipes
+                           .count_documents({'recipe_category': category}),
                            numberOfPages=numberOfPages,
                            title='Recipes')
 

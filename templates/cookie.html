@@ -119,7 +119,7 @@
               <div class="sidebar-item categories">
                 <ul>
                 {% for category in categories %}
-                  <li><a href="{{url_for('get_recipes_in_category', category = category.recipe_category, currentpage = 1)}}">{{category.recipe_category.capitalize()}} <span>(25)</span></a></li>
+                  <li><a href="{{url_for('get_recipes_in_category', category = category.recipe_category, currentpage = 1)}}">{{category.recipe_category.capitalize()}} <span>({{itemCount}})</span></a></li>
                 {% endfor %}
                 </ul>
 
