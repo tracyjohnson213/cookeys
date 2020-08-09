@@ -30,7 +30,7 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4 class="title"><a href="">{{category.recipe_category}}</a></h4>
+              <h4 class="title"><a href="{{url_for('get_recipes_in_category', category = category.recipe_category, currentpage = 1)}}">{{category.recipe_category}}</a></h4>
               <p class="description">{{category.category_desc}}</p>
                 <a href="{{url_for('edit_category', category_id=category._id)}}" >Modify</a>
             </div>

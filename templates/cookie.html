@@ -41,14 +41,14 @@
               </div>
 
               <h2 class="entry-title">
-                <a href="blog-single.html">{{recipe.cookie_name}}</a>
+                <a href="#">{{recipe.cookie_name}}</a>
               </h2>
 
               <div class="entry-meta">
                 <ul>
                 {% set recipe_author = recipe.firstname + ' ' + recipe.lastname %}
-                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html">{{recipe_author}}</a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{recipe.timestamp}}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="#">{{recipe_author}}</a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="#"><time datetime="2020-01-01">{{recipe.timestamp}}</time></a></li>
                 </ul>
               </div>
 
@@ -107,6 +107,7 @@
 
               <h3 class="sidebar-title">Search</h3>
               <div class="sidebar-item search-form">
+                
                 <form action="">
                   <input type="text">
                   <button type="submit"><i class="icofont-search"></i></button>
@@ -118,7 +119,7 @@
               <div class="sidebar-item categories">
                 <ul>
                 {% for category in categories %}
-                  <li><a href="#">{{category.recipe_category.capitalize()}} <span>(25)</span></a></li>
+                  <li><a href="{{url_for('get_recipes_in_category', category = category.recipe_category, currentpage = 1)}}">{{category.recipe_category.capitalize()}} <span>(25)</span></a></li>
                 {% endfor %}
                 </ul>
 

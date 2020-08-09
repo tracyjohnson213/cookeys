@@ -22,11 +22,6 @@ def getNumberOfPages(count):
     return math.ceil(count/recipesPerPage)
 
 
-def getCountOfDbItems(database,databaseItem):
-    dbase = mongo.db.database.find({databaseItem: databaseItem})
-    return dbase.count_documents({})
-
-
 @app.route('/')
 @app.route('/get_recipes')
 def get_recipes():
@@ -151,6 +146,20 @@ def get_categories_set(currentpage):
                            title='Categories')
 
 
+@app.route('/get_recipes/<category>/<currentpage>')
+def get_recipes_in_category(category,currentpage):
+    """ render recipes in individual category """
+    numberOfPages = getNumberOfPages(recipe_count)
+    return render_template('recipes.html',
+                           recipesPerPage=recipesPerPage,
+                           currentpage=currentpage,
+                           recipes=mongo.db.recipes
+                           .find({'recipe_category': category})
+                           .skip(categoriesPerPage*(int(currentpage)-1)),
+                           numberOfPages=numberOfPages,
+                           title='Recipes')
+
+
 @app.route('/add_category')
 def add_category():
     return render_template('addcategory.html',
@@ -194,21 +203,6 @@ def delete_category(category_id):
     """ remove category from database """
     mongo.db.categories.remove({'_id': ObjectId(category_id)})
     return redirect(url_for('get_categories'))
-
-
-@app.route('/search', methods=['POST'])
-def search(query):
-    """ get recipes or category matching criteria """
-    currentpage = 1
-    pagelessone = int(currentpage)-1
-    return render_template('recipes.html',
-                           recipesPerPage=recipesPerPage,
-                           currentpage=currentpage,
-                           recipes=mongo.db.recipes.find(
-                               {"cookie_name": query}
-                           ).skip(recipesPerPage*(pagelessone)),
-                           numberOfPages=getNumberOfPages(recipe_count),
-                           title='Recipes')
 
 
 if __name__ == '__main__':

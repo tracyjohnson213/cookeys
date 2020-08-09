@@ -53,19 +53,18 @@
             <article class="entry">
 
               <div class="entry-img">
-                <!--<img src="{{ url_for('static', filename='assets/img/cookies/{{recipe.image_source}}') }}" alt="" class="img-fluid">-->
                 <img src="../static/assets/img/cookies/{{recipe.image_source}}" alt="Photo for {{recipe.cookie_name}}" class="img-fluid">
               </div>
 
               <h2 class="entry-title">
-                <a href="#">{{recipe.cookie_name}}</a>
+                <a href="{{url_for('get_cookie', cookie_name=recipe.cookie_name)}}">{{recipe.cookie_name}}</a>
               </h2>
 
               <div class="entry-meta">
                 <ul>
                 {% set recipe_author = recipe.firstname + ' ' + recipe.lastname %}
-                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html">{{recipe_author}}</a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{recipe.timestamp}}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="#">{{recipe_author}}</a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="#"><time datetime="2020-01-01">{{recipe.timestamp}}</time></a></li>
                 </ul>
               </div>
 
