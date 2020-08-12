@@ -101,18 +101,18 @@
           <ul>
             <li>
               <i class="icofont-envelope"></i
-              ><a href="mailto:contact@example.com">contact@example.com</a>
+              ><a href="mailto:tracyjohnson213@gmail.com">support@cookeys.com</a>
             </li>
-            <li><i class="icofont-phone"></i> +1 5589 55488 55</li>
+            <li><i class="icofont-phone"></i> +1 562 548 0622</li>
             <li>
-              <i class="icofont-clock-time icofont-flip-horizontal"></i> Mon-Fri
+              <i class="icofont-clock-time icofont-flip-horizontal"></i> Mon-Sat
               9am - 5pm
             </li>
           </ul>
         </div>
         <form id="search_cookie" action="">
           <input type="text" name="cookie_name">
-          <button type="submit"><a href="{{url_for('get_cookie', cookie_name = cookie_name)}}"><i class="icofont-search"></i></a></button>
+          <button type="submit"><a href="{{ url_for('get_cookie', cookie_name = cookie_name) }}"><i class="icofont-search"></i></a></button>
         </form>
       </div>
     </div>
@@ -120,9 +120,9 @@
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
       <div class="container d-flex align-items-center">
-        <a href="{{url_for('get_recipes')}}" class="logo mr-auto scrollto"
+        <a href="{{ url_for('get_recipes') }}" class="logo mr-auto scrollto"
           ><img
-            src="../static/assets/img/cookeytextlogo.png"
+          src="{{ url_for('static', filename='assets/img/cookeytextlogo.png') }}"
             alt=""
             class="img-fluid" /></a
         >-
@@ -130,12 +130,12 @@
         <nav class="nav-menu d-none d-lg-block">
           <ul>
             <li class="active">
-              <a href="{{url_for('get_recipes')}}">Home</a>
+              <a href="{{ url_for('get_recipes') }}">Home</a>
             </li>
-            <li><a href="{{url_for('about')}}">About</a></li>
-            <li><a href="{{url_for('get_categories')}}">Categories</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('get_categories') }}">Categories</a></li>
+            <li><a href="{{ url_for('about') }}#team">Team</a></li>
+            <li><a href="{{ url_for('about') }}#contact">Contact</a></li>
           </ul>
         </nav>
         <!-- .nav-menu -->
@@ -153,8 +153,7 @@
             <div class="col-lg-6">
               <h4>Our Newsletter</h4>
               <p>
-                Tamen quem nulla quae legam multos aute sint culpa legam noster
-                magna
+                We would love to let you know the latesta about our company!  Please supply us an email to contact you.
               </p>
             </div>
             <div class="col-lg-6">
@@ -179,42 +178,18 @@
                   <i class="bx bx-chevron-right"></i> <a href="#">Home</a>
                 </li>
                 <li>
-                  <i class="bx bx-chevron-right"></i> <a href="#">About us</a>
+                  <i class="bx bx-chevron-right"></i> <a href="#">About Us</a>
                 </li>
                 <li>
-                  <i class="bx bx-chevron-right"></i> <a href="#">Services</a>
-                </li>
-                <li>
-                  <i class="bx bx-chevron-right"></i>
-                  <a href="#">Terms of service</a>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Categories</a>
                 </li>
                 <li>
                   <i class="bx bx-chevron-right"></i>
-                  <a href="#">Privacy policy</a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="col-lg-3 col-md-6 footer-links">
-              <h4>Our Services</h4>
-              <ul>
-                <li>
-                  <i class="bx bx-chevron-right"></i> <a href="#">Web Design</a>
+                  <a href="#">Our Team</a>
                 </li>
                 <li>
                   <i class="bx bx-chevron-right"></i>
-                  <a href="#">Web Development</a>
-                </li>
-                <li>
-                  <i class="bx bx-chevron-right"></i>
-                  <a href="#">Product Management</a>
-                </li>
-                <li>
-                  <i class="bx bx-chevron-right"></i> <a href="#">Marketing</a>
-                </li>
-                <li>
-                  <i class="bx bx-chevron-right"></i>
-                  <a href="#">Graphic Design</a>
+                  <a href="#">Contact Us</a>
                 </li>
               </ul>
             </div>
@@ -222,20 +197,18 @@
             <div class="col-lg-3 col-md-6 footer-contact">
               <h4>Contact Us</h4>
               <p>
-                A108 Adam Street <br />
-                New York, NY 535022<br />
+                818 Ocean Blvd<br />
+                Long Beach, CA 90806<br />
                 United States <br /><br />
-                <strong>Phone:</strong> +1 5589 55488 55<br />
-                <strong>Email:</strong> info@example.com<br />
+                <strong>Phone:</strong> +1 562 548 0622<br />
+                <strong>Email:</strong> info@cookeys.com<br />
               </p>
             </div>
 
             <div class="col-lg-3 col-md-6 footer-info">
-              <h3>About Anyar</h3>
+              <h3>About Cookeys</h3>
               <p>
-                Cras fermentum odio eu feugiat lide par naso tierra. Justo eget
-                nada terra videa magna derita valies darta donna mare fermentum
-                iaculis eu non diam phasellus.
+                We are a group of home cooks who are glad to share many common recipes in order to add smile to the children of the world, young and old.
               </p>
               <div class="social-links mt-3">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -254,6 +227,8 @@
       <div class="container">
         <div class="copyright">
           &copy; Copyright <strong><span>Anyar</span></strong
+          >. All Rights Reserved<br>
+          &copy; Copyright 2020 <strong><span>Tracy Johnson, Student Code Institute</span></strong
           >. All Rights Reserved
         </div>
         <div class="credits">

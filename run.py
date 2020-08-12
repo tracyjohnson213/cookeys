@@ -26,7 +26,7 @@ def getNumberOfPages(count):
 @app.route('/get_recipes')
 @app.route('/get_recipes/<currentpage>')
 def get_recipes(currentpage=1):
-    """ render all recipes """
+    """ render all recipes with limit per page"""
     numberOfPages = getNumberOfPages(recipe_count)
     return render_template('recipes.html',
                            recipesPerPage=recipesPerPage,
@@ -55,7 +55,7 @@ def get_recipes_in_category(category,currentpage):
 
 @app.route('/get_cookie/<cookie_name>')
 def get_cookie(cookie_name):
-    """ render individual recipe """
+    """ render individual recipe with categories listed in sidebar"""
     the_cookie = mongo.db.recipes.find_one(
         {"cookie_name": cookie_name})
     return render_template('cookie.html',
@@ -74,7 +74,7 @@ def add_recipe():
 
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
-    """ insert recipe into database """
+    """ insert recipe into database via add recipe form"""
     now = datetime.now()
     recipes = mongo.db.recipes
     if request.method == "POST":
@@ -96,7 +96,7 @@ def edit_recipe(recipe_id):
 
 @app.route('/update_recipe/<recipe_id>', methods=['POST'])
 def update_recipe(recipe_id):
-    """ update recipe in database """
+    """ update recipe in database via edit recipe form"""
     now = datetime.now()
     recipes = mongo.db.recipes
     recipes.update({'_id': ObjectId(recipe_id)},
@@ -125,7 +125,7 @@ def delete_recipe(recipe_id):
 @app.route('/get_categories')
 @app.route('/get_categories/<currentpage>')
 def get_categories(currentpage=1):
-    """ render all categories """
+    """ render all categories limited by current page"""
     numberOfPages = getNumberOfPages(category_count)
     return render_template('categories.html',
                            categoriesPerPage=categoriesPerPage,
@@ -138,12 +138,14 @@ def get_categories(currentpage=1):
 
 @app.route('/add_category')
 def add_category():
+    """ render form to input new category """
     return render_template('addcategory.html',
                            categories=mongo.db.categories.find())
 
 
 @app.route('/insert_category', methods=['POST'])
 def insert_category():
+    """ insert category into database via add category form"""
     now = datetime.now()
     categories = mongo.db.categories
     if request.method == "POST":
@@ -163,7 +165,7 @@ def edit_category(category_id):
 
 @app.route('/update_category/<category_id>', methods=['POST'])
 def update_category(category_id):
-    """ update category in database """
+    """ update category in database via edit category form """
     now = datetime.now()
     mongo.db.categories.update({'_id': ObjectId(category_id)},
                                {
@@ -183,17 +185,19 @@ def delete_category(category_id):
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    """ render about page with team members and contact form """
+    return render_template('about.html',
+                            team=mongo.db.team.find())
 
 
-@app.route('/about#team')
-def our_team():
-    return render_template('about.html')
-
-
-@app.route('/about#contact')
-def contact_us():
-    return render_template('about.html')
+@app.route('/contact', methods=['POST'])
+def contact():
+    now = datetime.now()
+    if request.method == 'POST':
+        data = request.form.to_dict()
+        data['timestamp'] = now.strftime('%b %d %Y')
+    return render_template('contact.html', 
+                            data=data)
 
 
 if __name__ == '__main__':
