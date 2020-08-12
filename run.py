@@ -51,7 +51,7 @@ def get_recipes_in_category(category,currentpage):
                            .count_documents({'recipe_category': category}),
                            numberOfPages=numberOfPages,
                            title='Recipes')
-                           
+
 
 @app.route('/get_cookie/<cookie_name>')
 def get_cookie(cookie_name):
@@ -148,7 +148,7 @@ def insert_category():
     categories = mongo.db.categories
     if request.method == "POST":
         data = request.form.to_dict()
-        data['timestamp']= now.strftime('%b %d %Y')
+        data['timestamp'] = now.strftime('%b %d %Y')
         categories.insert_one(data)
     return redirect(url_for('get_categories'))
 

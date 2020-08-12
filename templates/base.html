@@ -110,9 +110,9 @@
             </li>
           </ul>
         </div>
-        <form action="">
-          <input type="text">
-          <button type="submit"><i class="icofont-search"></i></button>
+        <form id="search_cookie" action="">
+          <input type="text" name="cookie_name">
+          <button type="submit"><a href="{{url_for('get_cookie', cookie_name = cookie_name)}}"><i class="icofont-search"></i></a></button>
         </form>
       </div>
     </div>
