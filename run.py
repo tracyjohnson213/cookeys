@@ -40,6 +40,7 @@ def get_recipes(currentpage=1):
 @app.route('/get_recipes/<category>/<currentpage>')
 def get_recipes_in_category(category,currentpage):
     """ render recipes in individual category """
+    recipe_count = mongo.db.recipes.count_documents({'recipe_category': category})
     numberOfPages = getNumberOfPages(recipe_count)
     return render_template('recipes.html',
                            recipesPerPage=recipesPerPage,
@@ -47,8 +48,7 @@ def get_recipes_in_category(category,currentpage):
                            recipes=mongo.db.recipes
                            .find({'recipe_category': category})
                            .skip(categoriesPerPage*(int(currentpage)-1)),
-                           itemCount=mongo.db.recipes
-                           .count_documents({'recipe_category': category}),
+                           itemCount=recipe_count,
                            numberOfPages=numberOfPages,
                            title='Recipes')
 
