@@ -10,16 +10,24 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'myCookeys'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI',
                                     "mongodb+srv://admin:1studentDeveloper@firstcluster.b5ihz.mongodb.net/myCookeys?retryWrites=true&w=majority")
+app.secret_key = os.getenv("SECRET_KEY")
+
+""" local variables """
 mongo = PyMongo(app)
 recipesPerPage = 9
 categoriesPerPage = 12
 recipe_count = mongo.db.recipes.count_documents({})
 category_count = mongo.db.categories.count_documents({})
+company = mongo.db.company.find()
 
 
 def getNumberOfPages(count):
     """ calculate for number of pages required to display results """
     return math.ceil(count/recipesPerPage)
+
+
+def getItemCount(category):
+    return mongo.db.categories.count_documents({'recipe_category': category})
 
 
 @app.route('/')
@@ -63,6 +71,7 @@ def get_cookie(cookie_name):
                                {'cookie_name': cookie_name}),
                            cookie=the_cookie,
                            categories=mongo.db.categories.find(),
+                           itemCount=category_count,
                            users=mongo.db.users.find())
 
 
