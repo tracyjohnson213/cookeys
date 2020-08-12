@@ -62,7 +62,8 @@ def get_cookie(cookie_name):
                            recipe=mongo.db.recipes.find_one(
                                {'cookie_name': cookie_name}),
                            cookie=the_cookie,
-                           categories=mongo.db.categories.find())
+                           categories=mongo.db.categories.find(),
+                           users=mongo.db.users.find())
 
 
 @app.route('/add_recipe')

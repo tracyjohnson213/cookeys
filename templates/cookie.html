@@ -87,19 +87,28 @@
 
             </article><!-- End blog entry -->
 
+            {% for user in users %}
+            {% if user.firstname == recipe.firstname %}
+            {% set author = user.firstname + ' ' + user.lastname %}
             <div class="blog-author clearfix">
-              <img src="../static/assets/img/author/blog-author.jpg" class="rounded-circle float-left" alt="">
-              <h4>{{recipe_author}}</h4>
+              <img src="/static/assets/img/author/{{user.image_source}}" class="rounded-circle float-left" alt="Photo for {{author}}">
+              <h4>{{author}}</h4>
               <div class="social-links">
-                <a href="https://twitters.com/#"><i class="icofont-twitter"></i></a>
-                <a href="https://facebook.com/#"><i class="icofont-facebook"></i></a>
-                <a href="https://instagram.com/#"><i class="icofont-instagram"></i></a>
+                {% if variable is defined %}
+                <a href="https://twitters.com/{{user.twitter}}"><i class="icofont-twitter"></i></a>
+                {% endif %}
+                {% if variable is defined %}
+                <a href="https://facebook.com/{{user.facebook}}"><i class="icofont-facebook"></i></a>
+                {% endif %}
+                {% if variable is defined %}
+                <a href="https://instagram.com/{{user.instagram}}"><i class="icofont-instagram"></i></a>
+                {% endif %}
               </div>
-              {% set author_bio = "Itaque quidem optio quia voluptatibus dolorem dolor. Modi eum sed possimus accusantium. Quas repellat voluptatem officia numquam sint aspernatur voluptas. Esse et accusantium ut unde voluptas." %}
               <p>
-                {{ author_bio }}
+                {{ user.author_bio }}
               </p>
             </div><!-- End blog author bio -->
+            {% endif %}{% endfor %}
 
           </div><!-- End blog entries list -->
 
