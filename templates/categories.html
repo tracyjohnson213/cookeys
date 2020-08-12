@@ -1,3 +1,5 @@
+{# _cookeys/templates/categories.html_ #}
+
 <!DOCTYPE html>
 {% extends 'base.html' %} {% block content %}
 
@@ -48,7 +50,7 @@
             {% elif prevpage == 1 %}
             <li><a href="{{url_for('get_categories')}}"><i class="icofont-rounded-left"></i></a></li>
             {% else %}
-            <li><a href="{{url_for('get_categories_set', currentpage = prevpage)}}"><i class="icofont-rounded-left"></i></a></li>
+            <li><a href="{{url_for('get_categories', currentpage = prevpage)}}"><i class="icofont-rounded-left"></i></a></li>
             {% endif %}
             
             <!-- add page numbers -->
@@ -57,18 +59,18 @@
                 {% if currentpage == 1 and page == 1 %}
                 <li class="active"><a href="{{url_for('get_categories')}}">{{page}}</a></li>
                 {% elif currentpage != 1 and page != 1 %}
-                <li class="active"><a href="{{url_for('get_categories_set', currentpage = page)}}">{{page}}</a></li>
+                <li class="active"><a href="{{url_for('get_categories', currentpage = page)}}">{{page}}</a></li>
                 {% elif page == 1 %}
                 <li><a href="{{url_for('get_categories')}}">{{page}}</a></li>
                 {% else %}
-                <li><a href="{{url_for('get_categories_set', currentpage = page)}}">{{page}}</a></li>
+                <li><a href="{{url_for('get_categories', currentpage = page)}}">{{page}}</a></li>
                 {% endif %}
            {% endfor %}
 
            {% if nextpage > numberOfPages %}
             <li class="disabled"><i class="icofont-rounded-right"></i></li>
             {% else %}
-            <li><a href="{{url_for('get_categories_set', currentpage = nextpage )}}"><i class="icofont-rounded-right"></i></a></li>
+            <li><a href="{{url_for('get_categories', currentpage = nextpage )}}"><i class="icofont-rounded-right"></i></a></li>
             {% endif %}
           </ul>
         </div>

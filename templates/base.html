@@ -1,3 +1,5 @@
+{# _cookeys/templates/base.html_ #}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -130,13 +132,9 @@
             <li class="active">
               <a href="{{url_for('get_recipes')}}">Home</a>
             </li>
-            <li><a href="#about">About</a></li>
+            <li><a href="{{url_for('about')}}">About</a></li>
             <li><a href="{{url_for('get_categories')}}">Categories</a></li>
-            <!--<li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>-->
             <li><a href="#team">Team</a></li>
-            <!--<li><a href="#pricing">Pricing</a></li>
-          <li><a href="blog.html">Blog</a></li>-->
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>

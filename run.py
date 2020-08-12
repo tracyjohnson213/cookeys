@@ -24,22 +24,9 @@ def getNumberOfPages(count):
 
 @app.route('/')
 @app.route('/get_recipes')
-def get_recipes():
-    """ render all recipes """
-    currentpage = 1
-    numberOfPages = getNumberOfPages(recipe_count)
-    return render_template('recipes.html',
-                           recipesPerPage=recipesPerPage,
-                           currentpage=1,
-                           recipes=mongo.db.recipes.find()
-                           .skip(recipesPerPage*(int(currentpage)-1)),
-                           numberOfPages=numberOfPages,
-                           title='Recipes')
-
-
 @app.route('/get_recipes/<currentpage>')
-def get_recipes_set(currentpage):
-    """ render specific set of recipes """
+def get_recipes(currentpage=1):
+    """ render all recipes """
     numberOfPages = getNumberOfPages(recipe_count)
     return render_template('recipes.html',
                            recipesPerPage=recipesPerPage,
@@ -49,6 +36,22 @@ def get_recipes_set(currentpage):
                            numberOfPages=numberOfPages,
                            title='Recipes')
 
+
+@app.route('/get_recipes/<category>/<currentpage>')
+def get_recipes_in_category(category,currentpage):
+    """ render recipes in individual category """
+    numberOfPages = getNumberOfPages(recipe_count)
+    return render_template('recipes.html',
+                           recipesPerPage=recipesPerPage,
+                           currentpage=currentpage,
+                           recipes=mongo.db.recipes
+                           .find({'recipe_category': category})
+                           .skip(categoriesPerPage*(int(currentpage)-1)),
+                           itemCount=mongo.db.recipes
+                           .count_documents({'recipe_category': category}),
+                           numberOfPages=numberOfPages,
+                           title='Recipes')
+                           
 
 @app.route('/get_cookie/<cookie_name>')
 def get_cookie(cookie_name):
@@ -120,22 +123,9 @@ def delete_recipe(recipe_id):
 
 
 @app.route('/get_categories')
-def get_categories():
-    """ render all categories """
-    currentpage = 1
-    numberOfPages = getNumberOfPages(category_count)
-    return render_template('categories.html',
-                           categoriesPerPage=categoriesPerPage,
-                           currentpage=1,
-                           categories=mongo.db.categories.find()
-                           .skip(categoriesPerPage*(int(currentpage)-1)),
-                           numberOfPages=numberOfPages,
-                           title='Categories')
-
-
 @app.route('/get_categories/<currentpage>')
-def get_categories_set(currentpage):
-    """ render specific set of recipes """
+def get_categories(currentpage=1):
+    """ render all categories """
     numberOfPages = getNumberOfPages(category_count)
     return render_template('categories.html',
                            categoriesPerPage=categoriesPerPage,
@@ -144,22 +134,6 @@ def get_categories_set(currentpage):
                            .skip(categoriesPerPage*(int(currentpage)-1)),
                            numberOfPages=numberOfPages,
                            title='Categories')
-
-
-@app.route('/get_recipes/<category>/<currentpage>')
-def get_recipes_in_category(category,currentpage):
-    """ render recipes in individual category """
-    numberOfPages = getNumberOfPages(recipe_count)
-    return render_template('recipes.html',
-                           recipesPerPage=recipesPerPage,
-                           currentpage=currentpage,
-                           recipes=mongo.db.recipes
-                           .find({'recipe_category': category})
-                           .skip(categoriesPerPage*(int(currentpage)-1)),
-                           itemCount=mongo.db.recipes
-                           .count_documents({'recipe_category': category}),
-                           numberOfPages=numberOfPages,
-                           title='Recipes')
 
 
 @app.route('/add_category')
@@ -205,6 +179,21 @@ def delete_category(category_id):
     """ remove category from database """
     mongo.db.categories.remove({'_id': ObjectId(category_id)})
     return redirect(url_for('get_categories'))
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
+@app.route('/about#team')
+def our_team():
+    return render_template('about.html')
+
+
+@app.route('/about#contact')
+def contact_us():
+    return render_template('about.html')
 
 
 if __name__ == '__main__':
