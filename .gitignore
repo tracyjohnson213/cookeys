@@ -1,2 +1,3 @@
 env
-unittests
+tests
+__pycache__
