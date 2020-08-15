@@ -4,7 +4,7 @@
 # Cookeys
 
 The purpose of this web application is to allow sharing of cookie recipes.
-The website is deployed to url = https://cookeys2.herokuapp.com/.
+The website is deployed to url = https://cookeys.herokuapp.com/.
 
 The site has been recreated in order to fill the following demonstration:
 
@@ -62,6 +62,7 @@ Create a web application that allows users to store and easily access
 - [ ] Send email from subscription in footer
 
 ### Features – Nice to have
+- [x] Display baking tools from an external site
 - [ ] Upgrade unittest to use HTMLTestRunner
 
 ## Technologies Used
