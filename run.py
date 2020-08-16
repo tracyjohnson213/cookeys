@@ -24,6 +24,17 @@ def about():
                             team=mongo.db.team.find())
 
 
+@app.route('/bakeware/<bakeware_name>')
+def get_bakery(bakeware_name):
+    """ render individual bakeware item"""
+    the_bakeware = mongo.db.bakeware.find_one(
+        {'name': bakeware_name})
+    return render_template('bakeware.html',
+                           bakery=mongo.db.bakeware.find_one(
+                               {'name': bakeware_name}),
+                           bakeware=the_bakeware)
+
+
 if __name__ == '__main__':
     app.run(
         host=os.getenv('IP','0.0.0.0'),

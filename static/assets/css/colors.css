@@ -319,7 +319,8 @@ a:hover {
 # Cta
 --------------------------------------------------------------*/
 .cta {
-  background: linear-gradient(rgba(5, 74, 133, 0.8), rgba(5, 74, 133, 0.9)), url("../img/cookeylogo.png") 
+  background: linear-gradient(rgba(5, 74, 133, 0.8), rgba(5, 74, 133, 0.9)), url("../img/cookeylogo.png");
+  background-size: cover; 
 }
 
 .cta h3 {

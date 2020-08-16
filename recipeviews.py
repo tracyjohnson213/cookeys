@@ -30,7 +30,8 @@ def get_recipes(currentpage=1):
                            recipes=mongo.db.recipes.find()
                            .skip(recipesPerPage*(int(currentpage)-1)),
                            numberOfPages=numberOfPages,
-                           title='Recipes')
+                           title='Recipes',
+                           bakeware=mongo.db.bakeware.find())
 
 
 @app.route('/get_recipes/<category>/<currentpage>')
