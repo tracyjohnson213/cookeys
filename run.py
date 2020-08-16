@@ -26,12 +26,25 @@ def about():
 
 @app.route('/contact', methods=['POST'])
 def contact():
+    """ render contact form """
     now = datetime.now()
     if request.method == 'POST':
         data = request.form.to_dict()
         data['timestamp'] = now.strftime('%b %d %Y')
     return render_template('contact.html', 
                             data=data)
+
+
+@app.route('/bakeware/<bakeware_name>')
+def get_bakery(bakeware_name):
+    """ render individual bakeware item"""
+    the_bakeware = mongo.db.bakeware.find_one(
+        {'name': bakeware_name})
+    return render_template('bakeware.html',
+                           bakery=mongo.db.bakeware.find_one(
+                               {'name': bakeware_name}),
+                           bakeware=the_bakeware)
+
 
 if __name__ == '__main__':
     app.run(
