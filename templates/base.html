@@ -2,7 +2,8 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -11,64 +12,25 @@
     <meta content="" name="keywords" />
 
     <!-- Favicons -->
-    <link
-      href="{{ url_for('static', filename='assets/img/cookeyfavicon.png') }}"
-      rel="icon"
-    />
-    <link
-      href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}"
-      rel="apple-touch-icon"
-    />
+    <link href="{{ url_for('static', filename='assets/img/cookeyfavicon.png') }}" rel="icon" />
+    <link href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
 
     <!-- Vendor CSS Files -->
-    <link
-      href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}"
-      rel="stylesheet"
-    />
-    <link
-      href="{{ url_for('static', filename='assets/vendor/icofont/icofont.min.css') }}"
-      rel="stylesheet"
-    />
-    <link
-      href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}"
-      rel="stylesheet"
-    />
-    <link
-      href="{{ url_for('static', filename='assets/vendor/animate.css/animate.min.css') }}"
-      rel="stylesheet"
-    />
-    <link
-      href="{{ url_for('static', filename='assets/vendor/remixicon/remixicon.css') }}"
-      rel="stylesheet"
-    />
-    <link
-      href="{{ url_for('static', filename='assets/vendor/owl.carousel/assets/owl.carousel.min.css') }}"
-      rel="stylesheet"
-    />
-    <link
-      href="{{ url_for('static', filename='assets/vendor/venobox/venobox.css') }}"
-      rel="stylesheet"
-    />
-    <link
-      href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}"
-      rel="stylesheet"
-    />
+    <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/vendor/icofont/icofont.min.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/vendor/venobox/venobox.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet" />
 
     <!-- Template Main CSS File -->
-    <link
-      href="{{ url_for('static', filename='assets/css/style.css') }}"
-      rel="stylesheet"
-    />
-    <link
-      href="{{ url_for('static', filename='assets/css/style2.css') }}"
-      rel="stylesheet"
-    />
+    <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/css/style2.css') }}" rel="stylesheet" />
 
     <!-- =======================================================
   * Template Name: Anyar - v2.1.0
@@ -78,68 +40,53 @@
   ======================================================== -->
 
     <!-- CSS File -->
-    <link
-      href="{{ url_for('static', filename='assets/css/colors.css') }}"
-      rel="stylesheet"
-    />
+    <link href="{{ url_for('static', filename='assets/css/colors.css') }}" rel="stylesheet" />
     <!-- FontAwesome Icon Font-->
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='assets/vendor/fontawesome-free-5.13.1-web/css/fontawesome.min.css') }}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='assets/vendor/fontawesome-free-5.13.1-web/css/all.min.css') }}"
-    />
-  </head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendor/fontawesome-free-5.13.1-web/css/fontawesome.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendor/fontawesome-free-5.13.1-web/css/all.min.css') }}" />
+</head>
 
-  <body>
+<body>
     <!-- ======= Top Bar ======= -->
     <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
-      <div class="container d-flex align-items-center">
-        <div class="contact-info mr-auto">
-          <ul>
-            <li>
-              <i class="icofont-envelope"></i
+        <div class="container d-flex align-items-center">
+            <div class="contact-info mr-auto">
+                <ul>
+                    <li>
+                        <i class="icofont-envelope"></i
               ><a href="mailto:tracyjohnson213@gmail.com">support@cookeys.com</a>
             </li>
             <li><i class="icofont-phone"></i> +1 562 548 0622</li>
-            <li>
-              <i class="icofont-clock-time icofont-flip-horizontal"></i> Mon-Sat
-              9am - 5pm
-            </li>
-          </ul>
+                    <li>
+                        <i class="icofont-clock-time icofont-flip-horizontal"></i> Mon-Sat 9am - 5pm
+                    </li>
+                </ul>
+            </div>
+            <form id="search_cookie" action="">
+                <input type="text" name="cookie_name">
+                <button type="submit"><a href="{{ url_for('get_cookie', cookie_name = cookie_name) }}"><i class="icofont-search"></i></a></button>
+            </form>
         </div>
-        <form id="search_cookie" action="">
-          <input type="text" name="cookie_name">
-          <button type="submit"><a href="{{ url_for('get_cookie', cookie_name = cookie_name) }}"><i class="icofont-search"></i></a></button>
-        </form>
-      </div>
     </div>
 
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
-      <div class="container d-flex align-items-center">
-        <a href="{{ url_for('get_recipes') }}" class="logo mr-auto scrollto"
-          ><img
-          src="{{ url_for('static', filename='assets/img/cookeytextlogo.png') }}"
-            alt=""
-            class="img-fluid" /></a
-        >-
+        <div class="container d-flex align-items-center">
+            <a href="{{ url_for('get_recipes') }}" class="logo mr-auto scrollto"><img src="{{ url_for('static', filename='assets/img/cookeytextlogo.png') }}" alt="" class="img-fluid" /></a>-
 
-        <nav class="nav-menu d-none d-lg-block">
-          <ul>
-            <li class="active">
-              <a href="{{ url_for('get_recipes') }}">Home</a>
-            </li>
-            <li><a href="{{ url_for('about') }}">About</a></li>
-            <li><a href="{{ url_for('get_categories') }}">Categories</a></li>
-            <li><a href="{{ url_for('about') }}#team">Team</a></li>
-            <li><a href="{{ url_for('about') }}#contact">Contact</a></li>
-          </ul>
-        </nav>
-        <!-- .nav-menu -->
-      </div>
+            <nav class="nav-menu d-none d-lg-block">
+                <ul>
+                    <li class="active">
+                        <a href="{{ url_for('get_recipes') }}">Home</a>
+                    </li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('get_categories') }}">Categories</a></li>
+                    <li><a href="{{ url_for('about') }}#team">Team</a></li>
+                    <li><a href="{{ url_for('about') }}#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- .nav-menu -->
+        </div>
     </header>
     <!-- End Header -->
 
@@ -147,86 +94,89 @@
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
-      <div class="footer-newsletter">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6">
-              <h4>Our Newsletter</h4>
-              <p>
-                We would love to let you know the latesta about our company!  Please supply us an email to contact you.
-              </p>
+        <div class="footer-newsletter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h4>Our Newsletter</h4>
+                        <p>
+                            We would love to let you know the latesta about our company! Please supply us an email to contact you.
+                        </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <!-- Direct data to personal email via static forms -->
+                        <form action="https://api.staticforms.xyz/submit" method="POST">
+                            <input type="hidden" name="accessKey" value="b471708e-6621-4fc0-9cb0-1353d368c2b9">
+                            <!-- Required -->
+                            <input type="email" name="email" />
+                            <input type="submit" value="Subscribe" />
+                            <div class="mb-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message">Seems there is an error on our side. Please try again.</div>
+                                <div class="sent-message">Your subscription has been sent. Thank you!</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-6">
-              <form action="" method="post">
-                <input type="email" name="email" /><input
-                  type="submit"
-                  value="Subscribe"
-                />
-              </form>
-            </div>
-          </div>
         </div>
-      </div>
 
-      <div class="footer-top">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-3 col-md-6 footer-links">
-              <h4>Useful Links</h4>
-              <ul>
-                <li>
-                  <i class="bx bx-chevron-right"></i> <a href="#">Home</a>
-                </li>
-                <li>
-                  <i class="bx bx-chevron-right"></i> <a href="#">About Us</a>
-                </li>
-                <li>
-                  <i class="bx bx-chevron-right"></i> <a href="#">Categories</a>
-                </li>
-                <li>
-                  <i class="bx bx-chevron-right"></i>
-                  <a href="#">Our Team</a>
-                </li>
-                <li>
-                  <i class="bx bx-chevron-right"></i>
-                  <a href="#">Contact Us</a>
-                </li>
-              </ul>
-            </div>
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li>
+                                <i class="bx bx-chevron-right"></i> <a href="#">Home</a>
+                            </li>
+                            <li>
+                                <i class="bx bx-chevron-right"></i> <a href="#">About Us</a>
+                            </li>
+                            <li>
+                                <i class="bx bx-chevron-right"></i> <a href="#">Categories</a>
+                            </li>
+                            <li>
+                                <i class="bx bx-chevron-right"></i>
+                                <a href="#">Our Team</a>
+                            </li>
+                            <li>
+                                <i class="bx bx-chevron-right"></i>
+                                <a href="#">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
 
-            <div class="col-lg-3 col-md-6 footer-contact">
-              <h4>Contact Us</h4>
-              <p>
-                818 Ocean Blvd<br />
-                Long Beach, CA 90806<br />
-                United States <br /><br />
-                <strong>Phone:</strong> +1 562 548 0622<br />
-                <strong>Email:</strong> info@cookeys.com<br />
-              </p>
-            </div>
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h4>Contact Us</h4>
+                        <p>
+                            818 Ocean Blvd<br /> Long Beach, CA 90806<br /> United States <br /><br />
+                            <strong>Phone:</strong> +1 562 548 0622<br />
+                            <strong>Email:</strong> info@cookeys.com<br />
+                        </p>
+                    </div>
 
-            <div class="col-lg-3 col-md-6 footer-info">
-              <h3>About Cookeys</h3>
-              <p>
-                We are a group of home cooks who are glad to share many common recipes in order to add smile to the children of the world, young and old.
-              </p>
-              <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"
-                  ><i class="bx bxl-instagram"></i
+                    <div class="col-lg-3 col-md-6 footer-info">
+                        <h3>About Cookeys</h3>
+                        <p>
+                            We are a group of home cooks who are glad to share many common recipes in order to add smile to the children of the world, young and old.
+                        </p>
+                        <div class="social-links mt-3">
+                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i
                 ></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-              </div>
+                            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
 
-      <div class="container">
-        <div class="copyright">
-          &copy; Copyright <strong><span>Anyar</span></strong
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong><span>Anyar</span></strong
           >. All Rights Reserved<br>
           &copy; Copyright 2020 <strong><span>Tracy Johnson, Student Code Institute</span></strong
           >. All Rights Reserved

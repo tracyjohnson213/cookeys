@@ -24,15 +24,6 @@ def about():
                             team=mongo.db.team.find())
 
 
-@app.route('/contact', methods=['POST'])
-def contact():
-    now = datetime.now()
-    if request.method == 'POST':
-        data = request.form.to_dict()
-        data['timestamp'] = now.strftime('%b %d %Y')
-    return render_template('contact.html', 
-                            data=data)
-
 if __name__ == '__main__':
     app.run(
         host=os.getenv('IP','0.0.0.0'),
