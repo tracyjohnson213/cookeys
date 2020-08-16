@@ -106,15 +106,12 @@
                     <div class="col-lg-6">
                         <!-- Direct data to personal email via static forms -->
                         <form action="https://api.staticforms.xyz/submit" method="POST">
-                            <input type="hidden" name="accessKey" value="b471708e-6621-4fc0-9cb0-1353d368c2b9">
                             <!-- Required -->
-                            <input type="email" name="email" />
+                            <input type="hidden" name="accessKey" value="b471708e-6621-4fc0-9cb0-1353d368c2b9">
+                            <input type="email" name="email" required/>
+                            <!-- ReplyTo to be set to specific email; Specify @ as reply to value if you want it to be customers email -->
+                            <input type="hidden" name="replyTo" value="@">
                             <input type="submit" value="Subscribe" />
-                            <div class="mb-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message">Seems there is an error on our side. Please try again.</div>
-                                <div class="sent-message">Your subscription has been sent. Thank you!</div>
-                            </div>
                         </form>
                     </div>
                 </div>
