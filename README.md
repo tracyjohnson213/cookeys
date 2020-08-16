@@ -79,6 +79,7 @@ Create a web application that allows users to store and easily access
 * [favicon.cc](https://www.favicon.cc/) - _favicon.cc_ is a tool to create or download favicon icons.
 - [LunaPic](https://www9.lunapic.com/editor) - _LunaPic_ is a transparent background tool.
 - [Wrike](https://wrike.com) - _Wrike_ is an online project management software platform.
+- [Static Forms](https://www.staticforms.xyz/) - Integrate HTML forms easily without any server side code.
 - [StackEdit](https://www.stackedit.io) - README.md was generated within _StackEdit_, a full-featured, open-source Markdown editor based on PageDown, the Markdown library used by Stack Overflow and the other Stack Exchange sites.
 * [Tidy Gherkins](https://chrome.google.com/webstore/detail/tidy-gherkin/nobemmencanophcnicjhfhnjiimegjeo?hl=en-GB) - _Tidy Gherkins_ allows generation of Cucumber steps for Java/Ruby/Javascript step definitions from your Gherkin feature files consistent in layout.
 - [Diagram.io](https://dbdiagram.io) for database dbdiagram, static/assets/cookeysdbdiagram.pdf
@@ -101,6 +102,7 @@ The text for the site was copied from
 - 3 ingredient peanut butter cookies, https://www.biggerbolderbaking.com/3-ingredient-peanut-butter-cookies/
 - Chocolate kiss powder puff cookies, https://www.averiecooks.com/chocolate-kiss-powder-puff-cookies/
 - Types of Cookies, https://www.thenibble.com/reviews/main/cookies/cookies2/cookie-history3.asp
+- Team Member Bios - https://www.character-generator.org.uk/?i=6rmolb8
 
 ### Personal Assessment Review:
 

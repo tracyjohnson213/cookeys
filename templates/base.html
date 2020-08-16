@@ -125,21 +125,21 @@
                         <h4>Useful Links</h4>
                         <ul>
                             <li>
-                                <i class="bx bx-chevron-right"></i> <a href="#">Home</a>
+                                <i class="bx bx-chevron-right"></i> <a href="{{ url_for('get_recipes') }}" ">Home</a>
                             </li>
                             <li>
-                                <i class="bx bx-chevron-right"></i> <a href="#">About Us</a>
+                                <i class="bx bx-chevron-right "></i> <a href="{{ url_for( 'about') }} ">About Us</a>
                             </li>
                             <li>
-                                <i class="bx bx-chevron-right"></i> <a href="#">Categories</a>
+                                <i class="bx bx-chevron-right "></i> <a href="{{ url_for( 'get_categories') }} ">Categories</a>
+                            </li>
+                            <li>
+                                <i class="bx bx-chevron-right "></i>
+                                <a href="{{ url_for( 'about') }}#team "">Our Team</a>
                             </li>
                             <li>
                                 <i class="bx bx-chevron-right"></i>
-                                <a href="#">Our Team</a>
-                            </li>
-                            <li>
-                                <i class="bx bx-chevron-right"></i>
-                                <a href="#">Contact Us</a>
+                                <a href="{{ url_for('about') }}#contact">Contact Us</a>
                             </li>
                         </ul>
                     </div>
