@@ -1,84 +1,82 @@
 {# _cookeys/templates/categories.html_ #}
 
-<!DOCTYPE html>
-{% extends 'base.html' %} {% block content %}
+<!DOCTYPE html> {% extends 'base.html' %} {% block content %}
 
 <main id="main">
 
     <!-- ======= Cta Section ======= -->
     <section id="cta" class="cta">
-      <div class="container">
+        <div class="container">
 
-        <div class="row" data-aos="zoom-in">
-          <div class="col-lg-9 text-center text-lg-left">
-            <!--<h3>Call To Action</h3>-->
-            <p></p>
-            <p> You don't see the type of cookies you want to bake.  Let's update the list and see how many will add to it!</p>
-          </div>
-          <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="{{url_for('add_category')}}">Add Category</a>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Cta Section -->
-
-  <!-- ======= Categories Section ======= -->
-    <section id="icon-boxes" class="icon-boxes">
-      <div class="container">
-
-        <div class="row">
-        {% for category in categories %}
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4 class="title"><a href="{{url_for('get_recipes_in_category', category = category.recipe_category, currentpage = 1)}}">{{category.recipe_category}}</a></h4>
-              <p class="description">{{category.category_desc}}</p>
-                <a href="{{url_for('edit_category', category_id=category._id)}}" >Modify</a>
+            <div class="row" data-aos="zoom-in">
+                <div class="col-lg-9 text-center text-lg-left">
+                    <!--<h3>Call To Action</h3>-->
+                    <p></p>
+                    <p> You don't see the type of cookies you want to bake. Let's update the list and see how many will add to it!</p>
+                </div>
+                <div class="col-lg-3 cta-btn-container text-center">
+                    <a class="cta-btn align-middle" href="{{url_for('add_category')}}">Add Category</a>
+                </div>
             </div>
-          </div>
-          {% endfor %}
 
         </div>
+    </section>
+    <!-- End Cta Section -->
 
-        {% set nextpage = currentpage|int + 1 %}{% set prevpage = currentpage|int - 1 %}
-        <div class="category-pagination" data-aos="fade-up">
-          <ul class="justify-content-center">
-            <!-- add and set previous page pagination link -->
-            {% if currentpage == 1 %}
-            <li class="disabled"><i class="icofont-rounded-left"></i></li>
-            {% elif prevpage == 1 %}
-            <li><a href="{{url_for('get_categories')}}"><i class="icofont-rounded-left"></i></a></li>
-            {% else %}
-            <li><a href="{{url_for('get_categories', currentpage = prevpage)}}"><i class="icofont-rounded-left"></i></a></li>
-            {% endif %}
-            
-            <!-- add page numbers -->
-            {% for page in range(1,numberOfPages + 1) %}
-                <!-- set active pagination link -->
-                {% if currentpage == 1 and page == 1 %}
-                <li class="active"><a href="{{url_for('get_categories')}}">{{page}}</a></li>
-                {% elif currentpage != 1 and page != 1 %}
-                <li class="active"><a href="{{url_for('get_categories', currentpage = page)}}">{{page}}</a></li>
-                {% elif page == 1 %}
-                <li><a href="{{url_for('get_categories')}}">{{page}}</a></li>
-                {% else %}
-                <li><a href="{{url_for('get_categories', currentpage = page)}}">{{page}}</a></li>
-                {% endif %}
-           {% endfor %}
+    <!-- ======= Categories Section ======= -->
+    <section id="icon-boxes" class="icon-boxes">
+        <div class="container">
 
-           {% if nextpage > numberOfPages %}
-            <li class="disabled"><i class="icofont-rounded-right"></i></li>
-            {% else %}
-            <li><a href="{{url_for('get_categories', currentpage = nextpage )}}"><i class="icofont-rounded-right"></i></a></li>
-            {% endif %}
-          </ul>
+            <div class="row">
+                {% for category in categories %}
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                        <h4 class="title"><a href="{{url_for('get_recipes_in_category', category = category.recipe_category, currentpage = 1)}}">{{category.recipe_category}} <span>({{category.recipe_category|length}})</span></a></h4>
+                        <p class="description">{{category.category_desc}}</p>
+                        <a href="{{url_for('edit_category', category_id=category._id)}}">Modify</a>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+            {% set nextpage = currentpage|int + 1 %}{% set prevpage = currentpage|int - 1 %}
+            <div class="category-pagination" data-aos="fade-up">
+                <ul class="justify-content-center">
+                    <!-- add and set previous page pagination link -->
+                    {% if currentpage == 1 %}
+                    <li class="disabled"><i class="icofont-rounded-left"></i></li>
+                    {% elif prevpage == 1 %}
+                    <li><a href="{{url_for('get_categories')}}"><i class="icofont-rounded-left"></i></a></li>
+                    {% else %}
+                    <li><a href="{{url_for('get_categories', currentpage = prevpage)}}"><i class="icofont-rounded-left"></i></a></li>
+                    {% endif %}
+
+                    <!-- add page numbers -->
+                    {% for page in range(1,numberOfPages + 1) %}
+                    <!-- set active pagination link -->
+                    {% if currentpage == 1 and page == 1 %}
+                    <li class="active"><a href="{{url_for('get_categories')}}">{{page}}</a></li>
+                    {% elif currentpage != 1 and page != 1 %}
+                    <li class="active"><a href="{{url_for('get_categories', currentpage = page)}}">{{page}}</a></li>
+                    {% elif page == 1 %}
+                    <li><a href="{{url_for('get_categories')}}">{{page}}</a></li>
+                    {% else %}
+                    <li><a href="{{url_for('get_categories', currentpage = page)}}">{{page}}</a></li>
+                    {% endif %} {% endfor %} {% if nextpage > numberOfPages %}
+                    <li class="disabled"><i class="icofont-rounded-right"></i></li>
+                    {% else %}
+                    <li><a href="{{url_for('get_categories', currentpage = nextpage )}}"><i class="icofont-rounded-right"></i></a></li>
+                    {% endif %}
+                </ul>
+            </div>
+
         </div>
-        
-      </div>
-    </section><!-- End Icon Boxes Section -->
+    </section>
+    <!-- End Icon Boxes Section -->
 
-    
+
 </main>
 
 {% endblock %}
