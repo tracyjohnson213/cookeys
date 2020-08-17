@@ -87,18 +87,16 @@ def get_recipes_in_category(category,currentpage):
                            currentpage=currentpage,
                            recipes=getrecipesincategory(category,currentpage),
                            itemCount=countrecipesincategory(category),
-                           numberOfPages=getNumberOfRecipePages(countallrecipes()),
+                           numberOfPages=getNumberOfRecipePages(countrecipesincategory(category)),
                            title='Recipes')
 
 
 @app.route('/get_cookie/<cookie_name>')
 def get_cookie(cookie_name):
     """ render individual recipe with categories listed in sidebar"""
-    """ TODO - itemCount should be countrecipesincategory(category) """
     return render_template('cookie.html',
                            recipe=getcookie(cookie_name),
                            categories=getallcategories(),
-                           itemCount=countallcategories(),
                            users=getallusers())
 
 
