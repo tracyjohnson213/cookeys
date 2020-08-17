@@ -1,59 +1,49 @@
 {# _cookeys/templates/editrecipe.html_ #}
 
-<!DOCTYPE html>
-{% extends 'base.html' %} {% block content %}
+<!DOCTYPE html> {% extends 'base.html' %} {% block content %}
 
 <main id="main">
 
     <!-- ======= Cta Section ======= -->
     <section id="cta" class="cta">
-      <div class="container">
+        <div class="container">
 
-        <div class="row" data-aos="zoom-in">
-          <div class="col-lg-9 text-center text-lg-left">
-            <!--<h3>Call To Action</h3>-->
-            <p></p>
-            <p> Do you really want to edit this one or are you putting a new spin on it that makes it a new one?</p>
-          </div>
-          <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="{{url_for('add_category')}}">Add Category</a>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Cta Section -->
-
-  <!-- ======= Edit Recipe Form ======= -->
-  <section id="editrecipe-form" class="editrecipe-form">
-    <div class="container">
-      <div class="row">
-        <form
-          class="col-lg-8"
-          action="{{ url_for('update_recipe', recipe_id=recipe._id)}}"
-          method="POST"
-        >
-          <!-- COOKIE NAME -->
-          <div class="row">
-            <div class="col">
-              <div class="row">
-                <div class="input-field col-lg-8">
-                  <input
-                    id="cookie_name"
-                    name="cookie_name"
-                    type="text"
-                    class="validate form-control"
-                    value="{{recipe.cookie_name.capitalize()}}"
-                  />
-                  <label for="cookie_name">Cookie Name</label>
+            <div class="row" data-aos="zoom-in">
+                <div class="col-lg-9 text-center text-lg-left">
+                    <!--<h3>Call To Action</h3>-->
+                    <p></p>
+                    <p> Do you really want to edit this one or are you putting a new spin on it that makes it a new one?</p>
                 </div>
-              </div>
+                <div class="col-lg-3 cta-btn-container text-center">
+                    <a class="cta-btn align-middle" href="{{url_for('add_category')}}">Add Category</a>
+                </div>
+            </div>
 
-              <!-- CATEGORY -->
-              <div class="row">
-                <div class="input-field col-sm-8">
-                <p>
-                  {% for cat in categories %}
-                  <label>
+        </div>
+    </section>
+    <!-- End Cta Section -->
+
+    <!-- ======= Edit Recipe Form ======= -->
+    <section id="editrecipe-form" class="editrecipe-form">
+        <div class="container">
+            <div class="row">
+                <form class="col-lg-8" action="{{ url_for('update_recipe', recipe_id=recipe._id)}}" method="post">
+                    <!-- COOKIE NAME -->
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="input-field col-lg-8">
+                                    <input id="cookie_name" name="cookie_name" type="text" class="validate form-control" value="{{recipe.cookie_name.capitalize()}}" />
+                                    <label for="cookie_name">Cookie Name</label>
+                                </div>
+                            </div>
+
+                            <!-- CATEGORY -->
+                            <div class="row">
+                                <div class="input-field col-sm-8">
+                                    <p>
+                                        {% for cat in categories %}
+                                        <label>
                     {% if cat.recipe_category in recipe.recipe_category %}
                     <input
                       class="with-gap"
@@ -73,31 +63,22 @@
                     />
                     {% endif %}
                     <span>{{cat.recipe_category.capitalize()}}</span>
-                  </label>
-                  {% endfor %}
-                </p>
-              </div>
-              </div>
+                  </label> {% endfor %}
+                                    </p>
+                                </div>
+                            </div>
 
-              <!-- INGREDIENTS -->
-              <div class="row">
-                <div class="input-field col-lg-8">
-                  <textarea
-                    id="ingredients"
-                    name="ingredients"
-                    class="form-control"
-                  >{{ recipe.ingredients.split('-') | join(' ')  }}</textarea>
-                </div>
-              </div>
+                            <!-- INGREDIENTS -->
+                            <div class="row">
+                                <div class="input-field col-lg-8">
+                                    <textarea id="ingredients" name="ingredients" class="form-control">{{ recipe.ingredients.split('-') | join(' ')  }}</textarea>
+                                </div>
+                            </div>
 
-              <!-- SUMMARY -->
-              <div class="row">
-                <div class="input-field col-lg-8">
-                  <textarea
-                    id="summary"
-                    name="summary"
-                    class="form-control"
-                  >
+                            <!-- SUMMARY -->
+                            <div class="row">
+                                <div class="input-field col-lg-8">
+                                    <textarea id="summary" name="summary" class="form-control">
                   {{recipe.summary}}</textarea
                   >
                 </div>
