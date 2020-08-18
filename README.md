@@ -62,18 +62,32 @@ Create a web application that allows users to store and easily access cookie rec
 - [x] View author photo for full recipe
 - [x] Send email from Contact form
 - [x] Send email from subscription in footer
+- [x] Display baking tools from an external site
  
 ### Features Left to Implement
 
 - [ ] Search recipes by cookie name on topbar
 - [ ] Search recipes by cookie name on recipe sidebar
+
+### TODO Items
+
+- [ ] Fix Heroku deployment
 - [ ] Unittests must pass
 - [ ] Integretion tests must pass
-- [ ] Fix Heroku deployment
+- [ ] CSS Styling '/' .hero remove margin-top: 55px
+- [ ] CSS Styling '/' .portfoio .portfolio-item {max-height: 350px;}
+- [ ] CSS Styling '/addrecipe' center form
+- [ ] CSS Styling '/edit_recipe' center form
+- [ ] CSS Styling '/addrecipe' .cta add space above text
+- [ ] CSS Styling '/about' .team.aos-init set uniform size despite text content
+- [ ] '/add_category' replace Lorem Ipson in .cta
+- [ ] '/bakeware' replace Lorem Ipson in .cta
+- [ ] '/bakeware' add 2 images per item
+- [ ] '/about' remove Learn More button
+- [ ] include wireframe
  
 ### Features – Nice to have
 
-- [x] Display baking tools from an external site
 - [ ] Upgrade unittest to use HTMLTestRunner
 
 ## Technologies Used
