@@ -1,61 +1,52 @@
 {# _cookeys/templates/bakeware.html_ #}
 
-<!DOCTYPE html>
-{% extends 'base.html' %} {% block content %}
+<!DOCTYPE html> {% extends 'base.html' %} {% block content %}
 
 <main id="main">
-  
-  <!-- ======= Cta Section ======= -->
+
+    <!-- ======= Cta Section ======= -->
     <section id="cta" class="cta">
-      <div class="container">
+        <div class="container">
 
-        <div class="row" data-aos="zoom-in">
-          <div class="col-lg-9 text-center text-lg-left">
-            <!--<h3>Call To Action</h3>-->
-            <p></p>
-            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-          <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="{{url_for('get_categories')}}">Edit Category</a>
-          </div>
+            <div class="row" data-aos="zoom-in">
+                <div class="col-lg-9 text-center text-lg-left">
+                    <p></p>
+                    <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="col-lg-3 cta-btn-container text-center">
+                    <a class="cta-btn align-middle" href="{{url_for('get_categories')}}">Edit Category</a>
+                </div>
+            </div>
+
         </div>
+    </section>
+    <!-- End Cta Section -->
 
-      </div>
-    </section><!-- End Cta Section -->
-
-    <!-- ======= Portfolio Details Section ======= -->
+    <!-- ======= Bakeware Details Section ======= -->
     <section id="portfolio-details" class="portfolio-details">
         <div class="container">
-  
-          <div class="portfolio-details-container">
-  
-            <div class="owl-carousel portfolio-details-carousel">
-              <img src="{{bakeware.image}}" class="img-fluid" alt="Photo 1 for {{bakeware.name}}">
-              <img src="{{bakeware.image2}}" class="img-fluid" alt="Photo 2 for {{bakeware.name}}">
-              <img src="{{bakeware.image3}}" class="img-fluid" alt="Photo 3 for {{bakeware.name}}">
+
+            <div class="portfolio-details-container">
+
+                <div class="owl-carousel portfolio-details-carousel">
+                    <img src="{{bakeware.image}}" class="img-fluid" alt="Photo 1 for {{bakeware.name}}">
+                    <img src="{{bakeware.image2}}" class="img-fluid" alt="Photo 2 for {{bakeware.name}}">
+                    <img src="{{bakeware.image3}}" class="img-fluid" alt="Photo 3 for {{bakeware.name}}">
+                </div>
+
+                <div class="portfolio-info">
+                    <h3>{{bakeware.name}}</h3>
+                    <ul>
+                        <li><strong>Average price</strong>: {{bakeware.price}}</li>
+                        <li><strong>Description</strong>: {{bakeware.description}}</li>
+                    </ul>
+                </div>
+
             </div>
-  
-            <div class="portfolio-info">
-              <h3>Project information</h3>
-              <ul>
-                <li><strong>Category</strong>: Web design</li>
-                <li><strong>Client</strong>: ASU Company</li>
-                <li><strong>Project date</strong>: 01 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
-              </ul>
-            </div>
-  
-          </div>
-  
-          <div class="portfolio-description">
-            <h2>This is an example of portfolio detail</h2>
-            <p>
-              Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-            </p>
-          </div>
-  
+
         </div>
-      </section><!-- End Portfolio Details Section -->
+    </section>
+    <!-- End Bakeware Details Section -->
 
 </main>
 

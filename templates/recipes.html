@@ -1,21 +1,20 @@
-{# _cookeys/templates/recipes.html_ #}
-
-{% extends 'base.html' %} {% block content %}
+{# _cookeys/templates/recipes.html_ #} {% extends 'base.html' %} {% block content %}
 
 <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex justify-cntent-center align-items-center">
+<section id="hero" class="d-flex justify-cntent-center align-items-center">
     <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
 
-      <!-- Slide 1 -->
-      <div class="carousel-item active">
-        <div class="carousel-container">
-          <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Cookeys</span></h2>
-          <p class="animate__animated animate__fadeInUp">Who doesn’t love a cookie. Just think: Without ovens, we wouldn’t have these delightful treats. In fact, the cookie was invented in the days before thermostats, as a test to see if primitive ovens were the right temperature to bake cakes. Rather than ruin an entire cake, a “little cake,” or cookie, was tested first. At the time, no one thought the “test cake” would become a treat with charms of its own. We would love to see your favorite recipes for cookies!</p>
-          <a href="{{url_for('add_recipe')}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Add Recipe</a>
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+            <div class="carousel-container">
+                <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Cookeys</span></h2>
+                <p class="animate__animated animate__fadeInUp">Who doesn’t love a cookie. Just think: Without ovens, we wouldn’t have these delightful treats. In fact, the cookie was invented in the days before thermostats, as a test to see if primitive ovens were the right temperature to bake cakes.
+                    Rather than ruin an entire cake, a “little cake,” or cookie, was tested first. At the time, no one thought the “test cake” would become a treat with charms of its own. We would love to see your favorite recipes for cookies!</p>
+                <a href="{{url_for('add_recipe')}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Add Recipe</a>
+            </div>
         </div>
-      </div>
 
-      <!--<a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+        <!--<a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
@@ -26,76 +25,79 @@
       </a>-->
 
     </div>
-  </section><!-- End Hero -->
+</section>
+<!-- End Hero -->
 
 
 
 <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
 
         <ol>
-          <li><a href="{{url_for('get_recipes')}}">Home</a></li>
-          <li>Cookies</li>
+            <li><a href="{{url_for('get_recipes')}}">Home</a></li>
+            <li>Cookies</li>
         </ol>
 
-      </div>
-    </section><!-- End Breadcrumbs -->
+    </div>
+</section>
+<!-- End Breadcrumbs -->
 
 
 <!-- ======= Recipe Section ======= -->
-   
-    <section id="blog" class="blog">
-      <div class="container">
+
+<section id="blog" class="blog">
+    <div class="container">
 
         <div class="row">
-     {% for recipe in recipes.limit(recipesPerPage) %}
-          <div class="col-lg-4  col-md-6 d-flex align-items-stretch" data-aos="fade-up">
-            <article class="entry">
+            {% for recipe in recipes.limit(recipesPerPage) %}
+            <div class="col-lg-4  col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+                <article class="entry">
 
-              <div class="entry-img">
-                <img src="/static/assets/img/cookies/{{recipe.image_source}}" alt="Photo for {{recipe.cookie_name}}" class="img-fluid">
-              </div>
+                    <div class="entry-img">
+                        <img src="/static/assets/img/cookies/{{recipe.image_source}}" alt="Photo for {{recipe.cookie_name}}" class="img-fluid">
+                    </div>
 
-              <h2 class="entry-title">
-                <a href="{{url_for('get_cookie', cookie_name=recipe.cookie_name)}}">{{recipe.cookie_name}}</a>
-              </h2>
+                    <h2 class="entry-title">
+                        <a href="{{url_for('get_cookie', cookie_name=recipe.cookie_name)}}">{{recipe.cookie_name}}</a>
+                    </h2>
 
-              <div class="entry-meta">
-                <ul>
-                {% set recipe_author = recipe.firstname + ' ' + recipe.lastname %}
-                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="#">{{recipe_author}}</a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="#"><time datetime="2020-01-01">{{recipe.timestamp}}</time></a></li>
-                </ul>
-              </div>
+                    <div class="entry-meta">
+                        <ul>
+                            {% set recipe_author = recipe.firstname + ' ' + recipe.lastname %}
+                            <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="#">{{recipe_author}}</a></li>
+                            <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="#"><time datetime="2020-01-01">{{recipe.timestamp}}</time></a></li>
+                        </ul>
+                    </div>
 
-              <div class="entry-content">
-                <p>{{recipe.summary|truncate(60, True) }}</p>
-                <div class="read-more">
-                  <a href="{{url_for('get_cookie', cookie_name=recipe.cookie_name)}}">Full Recipe</a>
-                </div>
-              </div>
+                    <div class="entry-content">
+                        <p>{{recipe.summary|truncate(60, True) }}</p>
+                        <div class="read-more">
+                            <a href="{{url_for('get_cookie', cookie_name=recipe.cookie_name)}}">Full Recipe</a>
+                        </div>
+                    </div>
 
-            </article><!-- End blog entry -->
-          </div>
-          {% endfor %}
+                </article>
+                <!-- End blog entry -->
+            </div>
+            {% endfor %}
 
         </div>
 
         {% set nextpage = currentpage|int + 1 %}{% set prevpage = currentpage|int - 1 %}
         <div class="blog-pagination" data-aos="fade-up">
-          <ul class="justify-content-center">
-            <!-- add and set previous page pagination link -->
-            {% if currentpage == 1 %}
-            <li class="disabled"><i class="icofont-rounded-left"></i></li>
-            {% elif prevpage == 1 %}
-            <li><a href="{{url_for('get_recipes')}}"><i class="icofont-rounded-left"></i></a></li>
-            {% else %}
-            <li><a href="{{url_for('get_recipes', currentpage = prevpage)}}"><i class="icofont-rounded-left"></i></a></li>
-            {% endif %}
-            
-            <!-- add page numbers -->
-            {% for page in range(1,numberOfPages + 1) %}
+            <ul class="justify-content-center">
+                <!-- add and set previous page pagination link -->
+                {% if currentpage == 1 %}
+                <li class="disabled"><i class="icofont-rounded-left"></i></li>
+                {% elif prevpage == 1 %}
+                <li><a href="{{url_for('get_recipes')}}"><i class="icofont-rounded-left"></i></a></li>
+                {% else %}
+                <li><a href="{{url_for('get_recipes', currentpage = prevpage)}}"><i class="icofont-rounded-left"></i></a></li>
+                {% endif %}
+
+                <!-- add page numbers -->
+                {% for page in range(1,numberOfPages + 1) %}
                 <!-- set active pagination link -->
                 {% if currentpage == 1 and page == 1 %}
                 <li class="active"><a href="{{url_for('get_recipes')}}">{{page}}</a></li>
@@ -105,63 +107,61 @@
                 <li><a href="{{url_for('get_recipes')}}">{{page}}</a></li>
                 {% else %}
                 <li><a href="{{url_for('get_recipes', currentpage = page)}}">{{page}}</a></li>
+                {% endif %} {% endfor %} {% if nextpage > numberOfPages %}
+                <li class="disabled"><i class="icofont-rounded-right"></i></li>
+                {% else %}
+                <li><a href="{{url_for('get_recipes', currentpage = nextpage )}}"><i class="icofont-rounded-right"></i></a></li>
                 {% endif %}
-           {% endfor %}
-
-           {% if nextpage > numberOfPages %}
-            <li class="disabled"><i class="icofont-rounded-right"></i></li>
-            {% else %}
-            <li><a href="{{url_for('get_recipes', currentpage = nextpage )}}"><i class="icofont-rounded-right"></i></a></li>
-            {% endif %}
-          </ul>
+            </ul>
         </div>
 
-      </div>
-    </section><!-- End Blog Section -->
+    </div>
+</section>
+<!-- End Blog Section -->
 
-    <!-- ======= Portfoio Section ======= -->
-    <section id="portfolio" class="portfoio">
-      <div class="container" data-aos="fade-up">
+<!-- ======= Bakeware Section ======= -->
+<section id="portfolio" class="portfoio">
+    <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Bakeware</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <h2>Bakeware</h2>
+            <p>There is always a tools that can make your job easier.</p>
         </div>
 
         <div class="row">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">Baking Sheets</li>
-              <li data-filter=".filter-card">Baking Tools</li>
-              <li data-filter=".filter-web">Mixing Tools</li>
-            </ul>
-          </div>
+            <div class="col-lg-12 d-flex justify-content-center">
+                <ul id="portfolio-flters">
+                    <li data-filter="*" class="filter-active">All</li>
+                    <li data-filter=".filter-app">Baking Sheets</li>
+                    <li data-filter=".filter-card">Baking Tools</li>
+                    <li data-filter=".filter-web">Mixing Tools</li>
+                </ul>
+            </div>
         </div>
 
         <div class="row portfolio-container">
 
-          {% for item in bakeware %}
-          {% if item.type == 'sheets' %}
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          {% elif item.type == 'tools' %}
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            {% elif item.type == 'mixing' %}
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            {% endif %}
-            <img src="{{item.image}}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>{{item.name}}</h4>
-              <p>{{item.price}}</p>
-              <a href="{{item.image}}" data-gall="portfolioGallery" class="venobox preview-link" title="{{item.name}}"><i class="bx bx-expand"></i></a>
-              <a href="{{url_for('get_bakery', bakeware_name = item.name)}}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            {% for item in bakeware %} {% if item.type == 'sheets' %}
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                {% elif item.type == 'tools' %}
+                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    {% elif item.type == 'mixing' %}
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                        {% endif %}
+                        <img src="{{item.image}}" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>{{item.name}}</h4>
+                            <p>{{item.price}}</p>
+                            <a href="{{item.image}}" data-gall="portfolioGallery" class="venobox preview-link" title="{{item.name}}"><i class="bx bx-expand"></i></a>
+                            <a href="{{url_for('get_bakery', bakeware_name = item.name)}}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+
             </div>
-          </div>
-          {% endfor %}
+</section>
+<!-- End Bakeware Section -->
 
-        </div>
-
-      </div>
-    </section><!-- End Portfoio Section -->
-
- {% endblock %}
+{% endblock %}
