@@ -72,18 +72,21 @@ Create a web application that allows users to store and easily access cookie rec
 ### TODO Items
 
 - [ ] Fix Heroku deployment
+- [ ] Hide about.html .contact form input#accessKey
+- [ ] Hide app.py MONGO_URI
 - [ ] Unittests must pass
 - [ ] Integretion tests must pass
-- [ ] CSS Styling '/' .hero remove margin-top: 55px
-- [ ] CSS Styling '/' .portfoio .portfolio-item {max-height: 350px;}
-- [ ] CSS Styling '/addrecipe' center form
-- [ ] CSS Styling '/edit_recipe' center form
-- [ ] CSS Styling '/addrecipe' .cta add space above text
-- [ ] CSS Styling '/about' .team.aos-init set uniform size despite text content
-- [ ] '/add_category' replace Lorem Ipson in .cta
-- [ ] '/bakeware' replace Lorem Ipson in .cta
-- [ ] '/bakeware' add 2 images per item
-- [ ] '/about' remove Learn More button
+- [?] CSS Styling '/' .hero remove margin-top: 55px
+- [?] CSS Styling '/' .portfoio .portfolio-item {max-height: 350px;}
+- [?] CSS Styling '/addrecipe' center form
+- [?] CSS Styling '/edit_recipe' center form
+- [?] CSS Styling '/addrecipe' .cta add space above text
+- [x] CSS Styling '/about' .team.aos-init set uniform size despite text content
+- [x] '/add_category' replace Lorem Ipson in .cta
+- [x] '/bakeware/bakeware_name' replace Lorem Ipson in .cta
+- [?] '/bakeware/bakeware_name' limit size of images
+- [ ] '/bakeware/bakeware_name' add 2 images per item
+- [x] '/about' remove Learn More button
 - [ ] include wireframe
  
 ### Features – Nice to have
@@ -119,6 +122,11 @@ Create a web application that allows users to store and easily access cookie rec
 
   
 ## Deployment
+- Install needed apps to run
+
+```$ pip3 install -r requirements.txt```
+
+### Deploy to Heroku with aid of https://devcenter.heroku.com/articles/getting-started-with-python
 
 - Fork and clone repository
 

@@ -40,7 +40,6 @@
                     <p>
                         I would be honored to work with your brand to create recipes using your products and to photograph the recipes and showcase them on my blog, or on your website, print materials, packaging, or other uses agreed upon. Please contact me for my rates.
                     </p>
-                    <a href="#" class="btn-learn-more">Learn More</a>
                 </div>
             </div>
 
@@ -65,7 +64,7 @@
                         <div class="member-info">
                             <h4>{{ member.member_name }}</h4>
                             <span>{{ member.member_title }}</span>
-                            <p>{{ member.member_bio }}</p>
+                            <p>{{ member.member_bio|truncate(80, True) }}</p>
                             <div class="social">
                                 {% if variable is defined %}
                                 <a href="https://twitters.com/{{ member.member_twitter }}"><i class="ri-twitter-fill"></i></a> {% endif %} {% if variable is defined %}

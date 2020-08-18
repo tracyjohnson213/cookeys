@@ -428,8 +428,6 @@ h6 {
 #hero {
     width: 100%;
     /*height: 80vh;*/
-    /* added */
-    margin-top: 55px;
     overflow: hidden;
     position: relative;
     /*updated with logo */
