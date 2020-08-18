@@ -6,13 +6,14 @@ import recipedata
 
 
 app = Flask(__name__)
+# app.config['MONGO_URI'] = 'mongodb://localhost:27017/myCookeys'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI',
                                     "mongodb+srv://admin:1studentDeveloper@firstcluster.b5ihz.mongodb.net/myCookeys?retryWrites=true&w=majority")
 mongo = PyMongo(app)
 
 
 class Test_RecipeAPI(unittest.TestCase):
-    API_URL = "https://5000-bec35a3f-2a73-4d52-9097-2c12048237a7.ws-us02.gitpod.io/"
+    API_URL = "mongodb://localhost:27017/myCookeys"
 
     # variable for new url with route
     def _get_url(self, route):
@@ -34,7 +35,7 @@ class Test_RecipeAPI(unittest.TestCase):
         # self.assertEqual(len(mongo.db.recipes.find(), 2))
 
 
-    # POST request to add new recipe
+    # post request to add new recipe
     def test_2_add_new_recipes(self):
         r = request.post(self._get_url("add_recipe"),
                         obj={recipedata.RECIPE_OBJ})

@@ -33,7 +33,7 @@ class Test_CategoryAPI(unittest.TestCase):
         # self.assertEqual(len(mongo.db.categories.find(), 2))
 
 
-    # POST request to add new category
+    # post request to add new category
     def test_2_add_new_categor(self):
         r = request.post(self._get_url("add_category"),
                         obj={recipedata.CATEGORY_OBJ})
@@ -49,7 +49,7 @@ class Test_CategoryAPI(unittest.TestCase):
                             {recipedata.CATEGORY_OBJ})
 
 
-    # POST request to add new recipe with added category
+    # post request to add new recipe with added category
     """def test_2_add_new_recipes_with_new_category(self):"""
 
 
