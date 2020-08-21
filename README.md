@@ -71,7 +71,7 @@ Create a web application that allows users to store and easily access cookie rec
 
 ### TODO Items
 
-- [ ] Fix Heroku deployment
+- [x] Fix Heroku deployment
 - [ ] Hide about.html .contact form input#accessKey
 - [ ] Hide app.py MONGO_URI
 - [ ] Unittests must pass
