@@ -5,12 +5,14 @@ from jinja2 import environmentfilter
 import math
 from datetime import datetime
 from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, check_password_hash
+if os.path.exists("env.py"):
+    import env
 
 app = Flask(__name__)
-app.config["MONGO_DBNAME"] = 'myCookeys'
-app.config["MONGO_URI"] = os.getenv('MONGO_URI',
-                                    "mongodb+srv://admin:1studentDeveloper@firstcluster.b5ihz.mongodb.net/myCookeys?retryWrites=true&w=majority")
-app.secret_key = os.getenv("SECRET_KEY")
+app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 import recipeviews
