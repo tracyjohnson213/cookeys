@@ -6,7 +6,9 @@
 # Cookeys
 
 The purpose of this web application is to allow sharing of cookie recipes.
+
 The website is deployed to url = https://cookeys.herokuapp.com/.
+
 The github repository is at https://github.com/tracyjohnson213/cookeys.git
 
 The site has been recreated in order to fill the following demonstration:
@@ -40,58 +42,26 @@ Promote the sell of tools used to bake.
 Create a web application that allows users to store and easily access cookie recipes.A front end form and backend code that allows users to add new submission to the site, edit and delete them.Create front and back end functionality for users to locate tips based on fields; either full search functionality or just a directory.Provide results in a manner that is visually appealing and user friendly.
 
 ### Existing Features
+Navigation thru pages of recipes
+View detailed recipes
+Ability to limit listed recipes by category
+Ability to add recipes
+Ability to edit recipes
+Ability to delete recipes
+View bakery tools that may be required
+View large images of bakery tools
+View details of bakery tools
+Display of contact form
 
-- [x] View all recipes and photo in database with truncated summary
-- [x] Link from all recipes to specific recipe to view full recipe
-- [x] View author, bio, and date of last edit for full recipe
-- [x] View all categories for recipes in database
-- [x] Click category listed on recipe page to view all recipes for category
-- [x] Add new recipes to database
-- [x] Edit recipe in database
-- [x] Delete recipe from database
-- [x] Add new category to database
-- [x] Edit category in database
-- [x] Delete category from database
-- [x] View About Page
-- [x] View Team Page
-- [x] View Contact Page
-- [x] View Contact confirmation upon form submission
-- [x] Use button to return to top of page
-- [x] Click breadcrumb for category on recipe page to view all recipes for category
-- [x] View count of recipes in category
-- [x] View author photo for full recipe
-- [x] Send email from Contact form
-- [x] Send email from subscription in footer
-- [x] Display baking tools from an external site
- 
 ### Features Left to Implement
-
-- [ ] Search recipes by cookie name on topbar
-- [ ] Search recipes by cookie name on recipe sidebar
-
-### TODO Items
-
-- [x] Fix Heroku deployment
-- [x] Hide about.html .contact form and base.html subscribe input#accessKey
-- [x] Hide app.py MONGO_URI
-- [ ] Unittests must pass
-- [ ] Integretion tests must pass
-- [?] CSS Styling '/' .hero remove margin-top: 55px
-- [?] CSS Styling '/' .portfoio .portfolio-item {max-height: 350px;}
-- [?] CSS Styling '/addrecipe' center form
-- [?] CSS Styling '/edit_recipe' center form
-- [?] CSS Styling '/addrecipe' .cta add space above text
-- [x] CSS Styling '/about' .team.aos-init set uniform size despite text content
-- [x] '/add_category' replace Lorem Ipson in .cta
-- [x] '/bakeware/bakeware_name' replace Lorem Ipson in .cta
-- [?] '/bakeware/bakeware_name' limit size of images
-- [ ] '/bakeware/bakeware_name' add 2 images per item
-- [x] '/about' remove Learn More button
-- [ ] include wireframe
+Search of recipes by name
+Ability to view count of recipes by category
+Unit testing
+Code Coverage
  
 ### Features – Nice to have
 
-- [ ] Upgrade unittest to use HTMLTestRunner
+- [ ] Upgrade unittests to use HTMLTestRunner
 
 ## Technologies Used
 
@@ -119,6 +89,43 @@ Create a web application that allows users to store and easily access cookie rec
 ## Testing
 
 [Emmet Re:view](re-view.emmet.io) - A browser extension for displaying responsive web-pages in a side-by-side views to quickly test how it looks at different resolutions and devices.
+
+### Scenarios
+👍️ As a site user, I want to view all recipes in the site in order to select one to use
+
+👍️ As a site user, I want to only view 9 recipes per page in order to rotate thru all recipes
+
+👍️ As a site user, I want to view a selected recipe in order to use it
+
+👍️ As a site user, I want to view a bio of an author for a selected recipe in order to relate to the author
+
+👍️ As a site user, I want to view only recipes within a category in order limit selections of one to use
+
+⛔️ As a site user, I want to view the count of recipes within a category in order to determine the largest group
+
+👍️ As a site user, I want to add a recipe in order to allow others to view it
+
+👍️ As a site user, I want to view contents of selected recipe in order to determine what I want to edit 
+
+👍️ As a site user, I want to edit submitted recipes in order to make corrections
+
+👍️ As a site user, I want to remove a selected recipe in order for it to no longer be shared
+
+⛔️ As a site user, I want to search for a recipe by cookie name
+
+👍️ As a site user, I want to submit a form to contact the business in order to contact a person regarding the site
+
+👍️ As a site user, I want to view business information like phone number, address, and email in order to contact a person regarding the site
+
+👍️ As a site user, I want to view information about the company's team
+
+👍️ As a site user, I want to view information on the company's mission
+
+👍️ As a site user, I want to see a list of tools in order to select one I may need to use for baking
+
+👍️ As a site user, I want to see additional details of baking tools in order to determine if it is needed
+
+👍️ As a site user, I want to see larger images of baking tools in order to be better informed of the product
 
   
 ## Deployment
