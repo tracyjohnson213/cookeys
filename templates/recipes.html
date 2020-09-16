@@ -35,8 +35,12 @@
     <div class="container">
 
         <ol>
+            {% if category is defined %}
+            <li>{{category}} ~ ( {{itemCount}} )</li>
+            {% else %}
             <li><a href="{{url_for('get_recipes')}}">Home</a></li>
             <li>Cookies</li>
+            {% endif %}
         </ol>
 
     </div>

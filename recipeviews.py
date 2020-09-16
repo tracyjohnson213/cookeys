@@ -66,24 +66,23 @@ def getallbakeware():
 def get_recipes(currentpage=1):
     """ render all recipes with limit per page"""
     return render_template('recipes.html',
-                           recipesPerPage=recipesPerPage,
-                           currentpage=currentpage,
-                           recipes=getpageofrecipes(currentpage),
-                           numberOfPages=getNumberOfRecipePages(countallrecipes()),
-                           title='Recipes',
-                           bakeware=getallbakeware())
+                            recipes=getpageofrecipes(currentpage),
+                            currentpage=currentpage,
+                            numberOfPages=getNumberOfRecipePages(countallrecipes()),
+                            bakeware=getallbakeware(),
+                            title='Recipes')
 
 
 @app.route('/get_recipes/<category>/<currentpage>')
 def get_recipes_in_category(category,currentpage):
     """ render recipes in individual category """
     return render_template('recipes.html',
-                           recipesPerPage=recipesPerPage,
-                           currentpage=currentpage,
-                           recipes=getrecipesincategory(category,currentpage),
-                           itemCount=countrecipesincategory(category),
-                           numberOfPages=getNumberOfRecipePages(countrecipesincategory(category)),
-                           title='Recipes')
+                            category=category,
+                            recipes=getrecipesincategory(category,currentpage),
+                            currentpage=currentpage,
+                            numberOfPages=getNumberOfRecipePages(countrecipesincategory(category)),
+                            itemCount=countrecipesincategory(category),
+                            title='Recipes')
 
 
 @app.route('/get_cookie/<cookie_name>')
