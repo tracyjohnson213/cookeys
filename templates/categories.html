@@ -41,7 +41,7 @@
 
             </div>
 
-            {% set nextpage = currentpage|int + 1 %}{% set prevpage = currentpage|int - 1 %}
+            {% if numberOfPages !=1 %}{% set nextpage = currentpage|int + 1 %}{% set prevpage = currentpage|int - 1 %}
             <div class="category-pagination" data-aos="fade-up">
                 <ul class="justify-content-center">
                     <!-- add and set previous page pagination link -->
@@ -71,6 +71,7 @@
                     {% endif %}
                 </ul>
             </div>
+            {% endif %}
 
         </div>
     </section>
