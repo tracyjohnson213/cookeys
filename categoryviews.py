@@ -1,4 +1,4 @@
-from __main__ import app, mongo, math, render_template, redirect, url_for, request, ObjectId, datetime
+from __main__ import app, mongo, math, render_template, redirect, url_for, request, ObjectId, datetime, DESCENDING, ASCENDING
 import recipeviews
 
 """ local variables """
@@ -18,7 +18,7 @@ def getcategory(category_id):
 
 def getpageofcategories(currentpage):
     """ collect categories to be displayed by page number """
-    return mongo.db.categories.find().skip(categoriesPerPage*(int(currentpage)-1))
+    return list(mongo.db.categories.find().sort('recipe_category', ASCENDING).skip(categoriesPerPage*(int(currentpage)-1)).limit(categoriesPerPage))
 
 
 def getallcategories():

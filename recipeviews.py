@@ -1,4 +1,4 @@
-from __main__ import app, mongo, math, render_template, redirect, url_for, request, ObjectId, datetime
+from __main__ import app, mongo, math, render_template, redirect, url_for, request, ObjectId, datetime, DESCENDING, ASCENDING
 
 
 """ local variables """
@@ -22,12 +22,7 @@ def getrecipe(recipe_id):
 
 def getpageofrecipes(currentpage):
     """ collect recipes to be displayed by page number """
-    return mongo.db.recipes.find().skip(recipesPerPage*(int(currentpage)-1))
-
-
-def getallrecipes():
-    """ return all recipes in db """
-    return mongo.db.recipes.find()
+    return list(mongo.db.recipes.find().sort('cookie_name', ASCENDING).skip(recipesPerPage*(int(currentpage)-1)).limit(recipesPerPage))
     
     
 def countallrecipes():
@@ -37,7 +32,7 @@ def countallrecipes():
 
 def getrecipesincategory(category, currentpage):
     """ collect recipes to be displayed by selected category """
-    return mongo.db.recipes.find({'recipe_category': category}).skip(categoriesPerPage*(int(currentpage)-1))
+    return list(mongo.db.recipes.find({'recipe_category': category}).sort('cookie_name', ASCENDING).skip(recipesPerPage*(int(currentpage)-1)).limit(recipesPerPage))
 
 
 def countrecipesincategory(category):
