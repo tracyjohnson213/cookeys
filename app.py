@@ -10,8 +10,10 @@ if os.path.exists("env.py"):
     import env
 
 app = Flask(__name__)
-app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
-app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+
+# Config settings and environmental variables
+app.config["MONGO_DBNAME"] = 'myCookeys'
+app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 app.secret_key = os.environ.get("SECRET_KEY")
 app.email_access_key = os.environ.get("EMAIL_ACCESS_KEY")
 mongo = PyMongo(app)

@@ -15,7 +15,7 @@ The site has been recreated in order to fill the following demonstration:
 
 - Creation of a MongoDB backed Flask web application project that allows users to store and manipulate data records
 - Design of well suited database structure including nested relationships between records of different entities
-- Creation of CRUD functionality- Use of HTML and custom CSS for front end
+- Creation of CRUD functionality - Use of HTML and custom CSS for front end
 - Incorporation of main navigation menu and structured layout
 - Creation of valuable README.md
 - Git & Github version control
@@ -62,6 +62,19 @@ Code Coverage
 ### Features – Nice to have
 
 - [ ] Upgrade unittests to use HTMLTestRunner
+
+### TODOs
+    1. fix search capacity by name on ‘/’
+    2. fix search capacity by name  on ‘/add_recipe’
+    3. fix search capacity by name  on get_cookie/<cookie_name>’ 
+    4. on ‘/’ xlg screen #hero .carousel-container requires margin-top: 100px
+    5. on ‘edit_recipe/<id>’ auto increase size of textarea based on content of largest of three items
+    6. on ‘add_category’ Pressed is not on separate line in med view
+    7. on ‘get_category’ cards need min width on med view
+    8. bakeware items should be uniform height or centered with border - .portfoio .portfolio-item has max -height 450px
+    9. add two photos per bakery item
+    10. count of category items is not correct
+    11. fix all unittests
 
 ## Technologies Used
 
@@ -162,6 +175,8 @@ Code Coverage
 - [Anyar Bootstrap Theme](https://bootstrapmade.com/demo/Anyar/)
 
 - https://github.com/franccesco/flask-heroku-example
+
+- https://github.com/stephyraju/spiceworld.git
  
 
 ### Content
