@@ -41,7 +41,6 @@ def countallcategories():
 def get_categories(currentpage=1):
     """ render all categories limited by current page"""
     return render_template('categories.html',
-                           # categoriesPerPage=categoriesPerPage,
                            currentpage=currentpage,
                            categories=getpageofcategories(currentpage),
                            numberOfPages=getNumberOfCategoryPages(countallcategories()),
