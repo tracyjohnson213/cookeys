@@ -50,8 +50,22 @@
 
 <!-- ======= Recipe Section ======= -->
 
-<section id="blog" class="blog">
+<section id="recipe" class="portfoio">
     <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+                <ul id="portfolio-flters">
+                    {% if category is not defined %}
+                    <li class="filter-active">All</li>
+                    {% else %}
+                    <li class="filter-active"><a href="{{url_for('get_recipes')}}">All</a></li>
+                    {% endif %} {% for category in categories %}
+                    <li><a href="{{url_for('get_recipes_in_category', category = category.recipe_category, currentpage = 1)}}">{{category.recipe_category}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
 
         <div class="row">
             {% for recipe in recipes %}
@@ -82,7 +96,7 @@
                     </div>
 
                 </article>
-                <!-- End blog entry -->
+                <!-- End recipe entry -->
             </div>
             {% endfor %}
 

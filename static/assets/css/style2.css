@@ -86,7 +86,141 @@
 
 
 /*--------------------------------------------------------------
-# get_recipe Bakeware images
+# Recipe
+--------------------------------------------------------------*/
+
+.recipe {
+    padding: 40px 0;
+}
+
+.recipe .entry {
+    padding: 20px;
+    margin-bottom: 60px;
+    overflow: hidden;
+}
+
+.recipe .entry .entry-img {
+    max-height: 400px;
+    margin: -20px -20px 20px -20px;
+    overflow: hidden;
+}
+
+.recipe .entry .entry-title {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: bold;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.recipe .entry .entry-title a {
+    transition: 0.3s;
+}
+
+.recipe .entry .entry-meta {
+    margin-bottom: 15px;
+}
+
+.recipe .entry .entry-meta ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recipe .entry .entry-meta ul li+li {
+    padding-left: 20px;
+}
+
+.recipe .entry .entry-meta i {
+    font-size: 14px;
+    padding-right: 4px;
+}
+
+.recipe .entry .entry-meta a {
+    font-size: 14px;
+    display: inline-block;
+    line-height: 1;
+}
+
+.recipe .entry .entry-content p {
+    line-height: 24px;
+    font-size: 15px;
+}
+
+.recipe .entry .entry-content .read-more {
+    -moz-text-align-last: right;
+    text-align-last: right;
+}
+
+.recipe .entry .entry-content .read-more a {
+    display: inline-block;
+    padding: 6px 20px 8px 20px;
+    transition: 0.3s;
+    font-size: 14px;
+    border-radius: 50px;
+}
+
+
+/*--------------------------------------------------------------
+# recipe.html Categories
+--------------------------------------------------------------*/
+
+.recipe #recipe-flters {
+    padding: 0;
+    margin: 0 auto 25px auto;
+    list-style: none;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.recipe #recipe-flters li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 18px 10px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    margin: 0 3px 10px 3px;
+    transition: all ease-in-out 0.3s;
+    border-radius: 50px;
+}
+
+.recipe #recipe-flters li:last-child {
+    margin-right: 0;
+}
+
+
+/*--------------------------------------------------------------
+# recipe.html Pagination
+--------------------------------------------------------------*/
+
+.recipe .recipe-pagination ul {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+}
+
+.recipe .recipe-pagination li {
+    border: 1px solid white;
+    margin: 0 5px;
+    transition: 0.3s;
+}
+
+.recipe .recipe-pagination li a {
+    padding: 7px 16px;
+    display: inline-block;
+}
+
+.recipe .recipe-pagination li.disabled i {
+    padding: 10px 16px;
+    display: inline-block;
+}
+
+
+/*--------------------------------------------------------------
+# recipe.html Bakeware images
 --------------------------------------------------------------*/
 
 .portfoio .portfolio-item {
@@ -123,4 +257,21 @@
 .editrecipe-form form {
     margin-left: auto;
     margin-right: auto;
+}
+
+
+/*--------------------------------------------------------------
+# Colors
+--------------------------------------------------------------*/
+
+.recipe #portfolio-flters li {
+    color: #444444;
+}
+
+.recipe #portfolio-flters li:hover,
+.recipe #portfolio-flters li.filter-active,
+.recipe #portfolio-flters li a:hover,
+.recipe #portfolio-flters li.filter-active a {
+    color: #fff;
+    background: #0880e8;
 }

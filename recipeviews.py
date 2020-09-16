@@ -69,6 +69,7 @@ def get_recipes(currentpage=1):
                             recipes=getpageofrecipes(currentpage),
                             currentpage=currentpage,
                             numberOfPages=getNumberOfRecipePages(countallrecipes()),
+                            categories=getallcategories(),
                             bakeware=getallbakeware(),
                             title='Recipes')
 
