@@ -60,6 +60,26 @@ def getallbakeware():
     return mongo.db.bakeware.find()
 
 
+def get_searchresult(entity,query={},**params):
+    """ return results of query"""
+    word_find = ''
+    if word_find in params:
+        word_find = params.get(word_find)
+        if len(word_find.split()) > 0:
+            entity.create_index([("$**", 'text')])
+            result = entity.find({'$text': {'$search': word_find}})
+    return result.word_find
+
+
+@app.route('/search')
+def search():
+    result = get_searchresult(mongo.db.recipes, **request.form.to_dict())
+    return render_template('cookie.html',
+                            recipe=getcookie(result),
+                            categories=getallcategories(),
+                            users=getallusers())
+
+
 @app.route('/')
 @app.route('/get_recipes')
 @app.route('/get_recipes/<currentpage>')

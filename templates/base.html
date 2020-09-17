@@ -62,10 +62,14 @@
                     </li>
                 </ul>
             </div>
-            <form id="search_cookie" action="">
-                <input type="text" name="search_text">
-                <button type="submit"><a href="{{ url_for('get_cookie', cookie_name=search_text) }}"><i class="icofont-search"></i></a></button>
+            <form action="{{ url_for('search') }}">
+                <input type="text" name="word_find" type="search" value="{{'cookie name'}}" required>
+                <button type="submit" name="action"><i class="icofont-search"></i></a></button>
             </form>
+            <!--<form id="search_cookie" action="{{ url_for('get_cookie', cookie_name=search_text) }}">
+                <input type="text" name="search_text">
+                <button type="submit"><i class="icofont-search"></i></a></button>
+            </form>-->
         </div>
     </div>
 

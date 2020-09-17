@@ -6,9 +6,10 @@ import recipedata
 
 
 app = Flask(__name__)
-# app.config['MONGO_URI'] = 'mongodb://localhost:27017/myCookeys'
-app.config["MONGO_URI"] = os.getenv('MONGO_URI',
-                                    "mongodb+srv://admin:1studentDeveloper@firstcluster.b5ihz.mongodb.net/myCookeys?retryWrites=true&w=majority")
+app.config['MONGO_DBNAME'] = 'myCookeys'
+app.config['MONGO_URI'] = 'mongodb://localhost:27017/myCookeys'
+# app.config["MONGO_URI"] = os.getenv('MONGO_URI',
+#                                    "mongodb+srv://admin:1studentDeveloper@firstcluster.b5ihz.mongodb.net/myCookeys?retryWrites=true&w=majority")
 mongo = PyMongo(app)
 
 
